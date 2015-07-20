@@ -24,5 +24,18 @@ Things you may want to cover:
 * ...
 
 
+Setting up Git
+-Create Git Repo
+-In terminal
+    -$ git init
+    -$ git add .
+    -$ git commit -m 'inital commit'
+    -$ git remote add origin git@github.com:username/repo.git
+    -$ git git push -u origin master
+
+Pushing to Heroku
+-
+
+
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
