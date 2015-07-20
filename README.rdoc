@@ -34,7 +34,14 @@ Setting up Git
     -$ git git push -u origin master
 
 Pushing to Heroku
--
+-$ heroku create iron-ocean
+-$ heroku git:remote -a iron-ocean
+-$ git push heroku master
+
+Data Base
+-in config/database.yml change names of databases
+-$ rake db:create
+-$ rake db:migrate
 
 
 Please feel free to use a different markup language if you do not plan to run
