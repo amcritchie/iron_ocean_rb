@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
+console.log('_____4321');
 $(document).ready(function () {
     console.log('_____432');
     Background.setup();
