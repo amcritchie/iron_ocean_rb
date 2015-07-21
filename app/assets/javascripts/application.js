@@ -16,8 +16,16 @@
 //= require turbolinks
 //= require_tree .
 
-console.log('_____4321');
 $(document).ready(function () {
-    console.log('_____432');
-    Background.setup();
+
+//    setTimeout(function () {
+    $('.background-wrapper').each(function (index, element) {
+        $(element).css('visibility', 'hidden');
+        $(element).find('img').on('load', function () {
+            $(".page-load-spinner").fadeOut('medium');
+            $(element).css('visibility', 'visible').hide().fadeIn('slow');
+        });
+        $(element).find('img').attr('src', $(element).data('background-image-path'));
+    });
+//    }, 1000);
 });
