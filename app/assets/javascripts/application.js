@@ -17,15 +17,5 @@
 //= require_tree .
 
 $(document).ready(function () {
-
-//    setTimeout(function () {
-        $('.background-wrapper').each(function (index, element) {
-            $(element).css('visibility', 'hidden');
-            $(element).find('img').on('load', function () {
-                $(".page-load-spinner").fadeOut('medium');
-                $(element).css('visibility', 'visible').hide().fadeIn('slow');
-            });
-            $(element).find('img').attr('src', $(element).data('background-image-path'));
-        });
-//    }, 1000);
+    Background.setup();
 });
