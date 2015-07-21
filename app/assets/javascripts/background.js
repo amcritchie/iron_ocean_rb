@@ -4,9 +4,19 @@ var Background = {
     $spinner: null,
     $image: null,
     setup: function () {
+        console.log('___1');
         Background.setVariable($('.background-wrapper'));
+        console.log('___2');
         Background.$curtain.css('visibility', 'hidden');
+        console.log('___3');
         Background.$image.on('load', Background.onLoad);
+        console.log('___4');
+        console.log(Background.$wrapper);
+        console.log('___5');
+        console.log(Background.$wrapper.data('background-image-path'));
+
+        console.log('___6');
+
         Background.$image.attr('src', Background.$wrapper.data('background-image-path'));
     },
     setVariable: function ($wrapper) {
