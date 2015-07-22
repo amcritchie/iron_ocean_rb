@@ -17,6 +17,6 @@
 //= require_tree .
 
 $(document).ready(function () {
-//    console.log('is this loading?');
+    console.log('is this loading? 2222');
     Background.setup();
 });
