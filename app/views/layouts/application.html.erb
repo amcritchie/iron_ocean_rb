@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script>
-      console.log('7__33');
-  </script>
   <title>IronOcean</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <script>
-      console.log('7__44');
-  </script>
 </head>
 <body>
 <%= render 'layouts/navbar' %>
-<script>
-  console.log('7__77');
-</script>
 <%= yield %>
 <%= render 'layouts/footer' %>
 </body>
