@@ -43,6 +43,14 @@ Data Base
 -$ rake db:create
 -$ rake db:migrate
 
+Pushing to heroku with a change to the assets
+-$ RAILS_ENV=production bundle exec rake assets:precompile
+-$ git add .
+-$ git commit -m 'message'
+-$ git push
+-$ git push heroku master
+
+
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
