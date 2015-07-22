@@ -17,6 +17,5 @@
 //= require_tree .
 
 $(document).ready(function () {
-    console.log('____111___');
     Background.setup();
 });
