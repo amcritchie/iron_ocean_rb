@@ -50,6 +50,3 @@ gem "twitter-bootstrap-rails"
 
 # Used for asset pipeline in Heroku
 gem 'rails_12factor', group: :production
-
-# Used for google analytics
-gem 'google-analytics-rails'
