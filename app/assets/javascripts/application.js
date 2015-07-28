@@ -27,19 +27,4 @@ ga('send', 'pageview');
 
 $(document).ready(function () {
     Background.setup();
-
-
-    window.location.hash = '#food'
-
-    $(window).on('hashchange', function () {
-        if (!location.hash) {
-            $('#tabs').tabs('option', 'active', 0); // activate first tab by default
-            return;
-        }
-        $('#tabs > ul > li > a').each(function (index, a) {
-            if ($(a).attr('href') == location.hash) {
-                $('#tabs').tabs('option', 'active', index);
-            }
-        });
-    });
 });
