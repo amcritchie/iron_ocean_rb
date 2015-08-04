@@ -8,6 +8,24 @@ Rails.application.routes.draw do
   get 'products' => 'iron#products'
   get 'about' => 'iron#about'
 
+  resources :users do
+    # resources :restaurants
+    # post 'restaurants/new' => 'restaurants#create'
+  end
+  post '/resend_confirmation_email' => 'users#resend_confirmation_email'
+  post '/deactivate_user' => 'users#deactivate_user'
+  post '/activate_user' => 'users#activate_user'
+
+  get "login" => "sessions#new", as: :login
+  post "login" => "sessions#create"
+  post "authenticate" => "sessions#authenticate"
+  post "unique_email" => "users#unique_email"
+  delete "logout" => "sessions#destroy", as: :logout
+
+  get 'admin' => 'admin#home'
+  get 'admin/analytics' => 'admin#analytics'
+  get 'admin/users' => 'admin#users'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

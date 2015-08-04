@@ -1,0 +1,9 @@
+<% if user.account_disabled %>
+    <a class="btn btn-danger activate-user show" data-toggle="modal" data-target=".activate-user-modal" data-id="<%= user.id %>" data-route="/activate_user">
+      <i class="fa fa-lock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
+    </a>
+<% else %>
+    <a class="btn btn-success deactivate-user show" data-toggle="modal" data-target=".deactivate-user-modal" data-id="<%= user.id %>" data-route="/deactivate_user">
+      <i class="fa fa-unlock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
+    </a>
+<% end %>

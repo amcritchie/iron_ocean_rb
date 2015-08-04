@@ -1,0 +1,7 @@
+<% if user.email_confirmed %>
+    <i class="fa fa-check-circle-o fa-2x" style="color: #5cb85c;"></i>
+<% else %>
+    <a class="btn btn-danger resend-confirmation-email show" data-toggle="modal" data-target=".resend-confirmation-email-modal" data-id="<%= user.id %>" data-route="/resend_confirmation_email">
+      <i class="fa fa-envelope fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
+    </a>
+<% end %>

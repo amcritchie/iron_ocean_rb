@@ -43,6 +43,19 @@ Data Base
 -$ rake db:create
 -$ rake db:migrate
 
+
+New Table
+- $ rails g model Message user_id:integer body:string
+
+
+Restarting DB
+-Close all instnaces of db runnging, e.g., 'rails c' and 'rails s'
+-$ rake db:drop db:create db:migrate db:seed
+
+Set up Figaro
+- $ bundle exec figaro install
+- In the config/application file add ENV values
+
 Pushing to heroku with a change to the assets
 -$ RAILS_ENV=production bundle exec rake assets:precompile
 -$ git add .

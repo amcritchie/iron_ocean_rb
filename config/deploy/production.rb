@@ -1,8 +1,8 @@
 # server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
-server '45.55.95.242', user: 'root', roles: %w{app db web}, my_property: :my_value
+server '45.55.95.242', users: 'root', roles: %w{app db web}, my_property: :my_value
 
 # server "45.55.95.242", :web
-set :user, "root"
+set :users, "root"
 
 set :host, "45.55.95.242"
 

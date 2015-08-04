@@ -37,3 +37,24 @@ nav {
 .fa-twitter:hover{color: #55ACEE;}
 .fa-github:hover{color: #444444;}
 .fa-linkedin:hover{color: #007BB6;}
+
+// admin/users
+.table th {
+  text-align: center;
+}
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table tbody>tr>td{
+  vertical-align: top;
+}
+
+.table tbody>tr.vert-align-row>td{
+  vertical-align: middle;
+}
+
+.waiting-view{
+  display: none;
+}

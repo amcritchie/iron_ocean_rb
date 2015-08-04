@@ -1,3 +1,4 @@
+<%= render 'layouts/headers/landing_header' %>
 <div class="background-wrapper" data-background-image-path="assets/background_images/iron_ocean_home_background.jpeg">
   <div class="container spinner-wrapper">
     <i class="fa fa-spinner fa-spin fa-5x"></i>
@@ -8,6 +9,7 @@
     <div class="blackLayer">
 
       <section id="intro" class="intro-section">
+        <%= session[:id] %>
         <%= render 'content/intro' %>
       </section>
       <!-- Services Section -->
@@ -26,3 +28,4 @@
     </div>
   </div>
 </div>
+<%= render 'modals/login_register' %>

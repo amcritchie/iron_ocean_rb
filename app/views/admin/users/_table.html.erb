@@ -1,0 +1,38 @@
+<%= render 'admin/users/modals/activate' %>
+<%= render 'admin/users/modals/deactivate' %>
+<%= render 'admin/users/modals/confirmation_email' %>
+<table summary="This table shows how to create responsive tables using Bootstrap's default functionality" class="table table-bordered table-hover">
+  <caption class="text-center">An example of a responsive table based on
+    <a href="http://getbootstrap.com/css/#tables-responsive" target="_blank">Bootstrap</a>:
+  </caption>
+  <thead>
+  <tr>
+    <th class="col-md-1">Id</th>
+    <th class="col-md-6">Email</th>
+    <th class="col-md-2">Created</th>
+    <th class="col-md-1">admin</th>
+    <th class="col-md-1">email</th>
+    <th class="col-md-1">active</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+      <tr class="vert-align-row">
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= time_ago_in_words(user.created_at) %> ago</td>
+        <td><%= render 'admin/users/status/admin', user: user %></td>
+        <td><%= render 'admin/users/status/email', user: user %></td>
+        <td><%= render 'admin/users/status/active', user: user %></td>
+      </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="6" class="text-center">Data retrieved from
+      <a href="http://www.infoplease.com/ipa/A0855611.html" target="_blank">infoplease</a> and
+      <a href="http://www.worldometers.info/world-population/population-by-country/" target="_blank">worldometers</a>.
+    </td>
+  </tr>
+  </tfoot>
+</table>

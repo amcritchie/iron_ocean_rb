@@ -16,7 +16,7 @@ var Background = {
         Background.$image = $wrapper.find('.background-image');
     },
     onLoad: function () {
-        Background.$spinner.fadeOut('medium');
+//        Background.$spinner.fadeOut('medium');
         Background.$curtain.css('visibility', 'visible').hide().fadeIn('slow');
     }
 };
