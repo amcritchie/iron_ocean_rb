@@ -13,7 +13,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :zip_code
       t.string :phone_number
       t.boolean :email_confirmed
-      t.boolean :account_disabled
+      t.boolean :active
+      t.timestamp :last_active
 
       t.timestamps
     end

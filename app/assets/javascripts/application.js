@@ -16,22 +16,38 @@
 //= require turbolinks
 //= require_tree .
 
-//$(document).addEventListener("page:restore", function() {
-////    app.init();
-//    console.log('______123');
-//});
-//Turbolinks.pagesCached(0);
+var ready;
+ready = function() {
+    console.log('____');
+    var paragraphs = document.getElementsByTagName("p");
+    for (var i = 0; i < paragraphs.length; i++) {
+        var paragraph = paragraphs.item(i);
+        paragraph.style.setProperty("color", "white", null);
+    }
 
-
-$(document).ready(function () {
-    console.log('______***');
-//$(document).on('page:load', function () {
     Background.setup();
 
     Form.login();
 
     Admin.Users.handlers();
-});
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
+//$(document).ready(function () {
+//    var paragraphs = document.getElementsByTagName("p");
+//    for (var i = 0; i < paragraphs.length; i++) {
+//        var paragraph = paragraphs.item(i);
+//        paragraph.style.setProperty("color", "white", null);
+//    }
+//
+//    Background.setup();
+//
+//    Form.login();
+//
+//    Admin.Users.handlers();
+//});
 
 var Ajaxx = {
     post: function (route, data, callback) {

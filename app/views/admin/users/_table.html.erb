@@ -1,3 +1,4 @@
+<%= render 'admin/users/modals/user' %>
 <%= render 'admin/users/modals/activate' %>
 <%= render 'admin/users/modals/deactivate' %>
 <%= render 'admin/users/modals/confirmation_email' %>
@@ -8,11 +9,12 @@
   <thead>
   <tr>
     <th class="col-md-1">Id</th>
-    <th class="col-md-6">Email</th>
+    <th class="col-md-5">Email</th>
     <th class="col-md-2">Created</th>
-    <th class="col-md-1">admin</th>
-    <th class="col-md-1">email</th>
+    <th class="col-md-1">edit</th>
     <th class="col-md-1">active</th>
+    <th class="col-md-1">email</th>
+    <th class="col-md-1">admin</th>
   </tr>
   </thead>
   <tbody>
@@ -21,9 +23,15 @@
         <td><%= user.id %></td>
         <td><%= user.email %></td>
         <td><%= time_ago_in_words(user.created_at) %> ago</td>
-        <td><%= render 'admin/users/status/admin', user: user %></td>
-        <td><%= render 'admin/users/status/email', user: user %></td>
+        <td><a class="btn btn-info show" data-toggle="modal"
+               data-target=".user-modal" data-id="<%= user.id %>"
+               data-route="/resend_confirmation_email">
+          <i class="fa fa-pencil-square-o"></i></a>
+        </td>
         <td><%= render 'admin/users/status/active', user: user %></td>
+        <td><%= render 'admin/users/status/email', user: user %></td>
+        <td><%= render 'admin/users/status/admin', user: user %></td>
+
       </tr>
   <% end %>
   </tbody>
@@ -31,7 +39,7 @@
   <tr>
     <td colspan="6" class="text-center">Data retrieved from
       <a href="http://www.infoplease.com/ipa/A0855611.html" target="_blank">infoplease</a> and
-      <a href="http://www.worldometers.info/world-population/population-by-country/" target="_blank">worldometers</a>.
+      <a href="http://www.worldometers.info/world-population/population-by-country/" target="_blank">11worldometers</a>.
     </td>
   </tr>
   </tfoot>

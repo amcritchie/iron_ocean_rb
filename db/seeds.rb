@@ -21,7 +21,8 @@ User.create(
     zip_code: Figaro.env.admin_zip_code,
     phone_number: Figaro.env.admin_phone_number,
     email_confirmed: true,
-    account_disabled: false
+    active: true,
+    last_active: nil
 )
 
 User.create(
@@ -37,7 +38,8 @@ User.create(
     zip_code: Figaro.env.user_zip_code,
     phone_number: Figaro.env.user_phone_number,
     email_confirmed: false,
-    account_disabled: false
+    active: true,
+    last_active: nil
 )
 
 User.create(
@@ -53,5 +55,6 @@ User.create(
     zip_code: '90405',
     phone_number: '1234567890',
     email_confirmed: false,
-    account_disabled: true
+    active: false,
+    last_active: nil
 )

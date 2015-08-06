@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801070451) do
+ActiveRecord::Schema.define(version: 20150806030000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "messages", force: true do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email"
@@ -29,7 +38,8 @@ ActiveRecord::Schema.define(version: 20150801070451) do
     t.string   "zip_code"
     t.string   "phone_number"
     t.boolean  "email_confirmed"
-    t.boolean  "account_disabled"
+    t.boolean  "active"
+    t.datetime "last_active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
