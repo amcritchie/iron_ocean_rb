@@ -4,7 +4,9 @@
     <i class="fa fa-spinner fa-spin fa-5x"></i>
   </div>
   <div class="background-curtain">
-    <img src="#" class="background-image background-sizing">
+    <div class="background-sizing">
+      <img src="#" class="background-image">
+    </div>
 
     <div class="blackLayer">
 
@@ -44,9 +46,9 @@
             </div>
             <div class="col-xs-9">
               <% Message.all.each do |message| %>
-                <div>
-                  <%= message.sender.email %> - <%= message.title %> - <%= message.body %>
-                </div>
+                  <div>
+                    <%= message.sender.email %> - <%= message.title %> - <%= message.body %>
+                  </div>
               <% end %>
             </div>
           </div>
@@ -69,7 +71,6 @@
               <% end %>
             </div>
           </div>
-
 
 
         </div>

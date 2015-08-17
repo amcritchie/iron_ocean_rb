@@ -37,6 +37,21 @@ ready = function() {
             window.document.location = $(this).data("href");
         });
     });
+
+    // Logic fo centering the background image on thin screens like the iphone
+    $(".background-sizing>img").each(function(i, img) {
+        $(img).css({
+            position: "relative",
+            left: ($(img).parent().width() - $(img).width()) / 2
+        });
+    });
+
+//    $(".background-sizing>img").each(function(i, img) {
+//        $(img).css({
+//            position: "relative",
+//            left: ($(img).parent().width() - $(img).width()) / 2
+//        });
+//    });
 };
 
 $(document).ready(ready);
