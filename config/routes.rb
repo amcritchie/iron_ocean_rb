@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     # resources :restaurants
     # post 'restaurants/new' => 'restaurants#create'
   end
+  get 'conversation/:your_id/:user_id' => 'messages#conversation'
+
   post '/resend_confirmation_email' => 'users#resend_confirmation_email'
   post '/deactivate_user' => 'users#deactivate_user'
   post '/activate_user' => 'users#activate_user'

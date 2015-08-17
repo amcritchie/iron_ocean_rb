@@ -12,7 +12,7 @@
           <tbody>
           <% @users_with_conversation.each do |user| %>
               <% last_message = Message.where(sender: user, receiver: current_user).last %>
-              <tr class="<% if last_message.unread %>success<% end %>">
+              <tr class="<% if last_message.unread %>success<% end %> clickable-row" data-href='/'>
                 <td>
                   <div class="hidden-xs">
                     <div style="height: 40px; width: 40px; float: left">

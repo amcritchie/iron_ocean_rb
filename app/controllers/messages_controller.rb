@@ -4,44 +4,20 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    # @messages = Message.all
-    # @new_messages = [1,2,3]
-    @new_messages = Message.where(receiver_id: params[:user_id], unread: true)
-    # sql = "SELECT * FROM users"
-    # ActiveRecord::Base.connection.execute(sql)
-    #
-    # p '-='*100
-    # p ActiveRecord::Base.connection.execute(sql)
-    # p '-='*100
-    #
-    # @connection = ActiveRecord::Base.connection
-    # result = @connection.exec_query('SELECT * FROM users')
-    # p '0'*40
-    # p result.where(email: 'amcritchie@gmail.com')
-    # result.each do |row|
-    #   p '0'*40
-    #   puts row
-    # end
 
     @users_with_conversation = []
-    # @last_messages = []
-
     @messages = Message.where(receiver_id: params[:user_id]).reverse_order
-    p '123'*100
+    @new_messages = @messages.where(unread: true)
     @messages.each do |message|
       unless @users_with_conversation.include?(message.sender)
         @users_with_conversation.push(message.sender)
-        # @last_messages.push(
-        #     Message.where()
-        # )
       end
     end
-    p '_=-0-=_'*30
-    p @users_with_conversation
-    p '_=-0-=_'*30
-    p @users_with_conversation.length
-    p '_=-0-=_'*30
     @messages = Message.all
+  end
+
+  def conversation
+
   end
 
   # GET /messages/1
