@@ -56,6 +56,10 @@ Set up Figaro
 - $ bundle exec figaro install
 - In the config/application file add ENV values
 
+-After pushing to heroku run (below) to populate all the env variables
+-$ figaro heroku:set -e production
+
+
 Pushing to heroku with a change to the assets
 -$ RAILS_ENV=production bundle exec rake assets:precompile
 -$ git add .
