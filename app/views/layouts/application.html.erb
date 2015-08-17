@@ -5,10 +5,10 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width">
 
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" >
 <%= yield %>
-<%= render 'layouts/footer' %>
 </body>
 </html>
