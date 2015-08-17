@@ -52,4 +52,7 @@ gem "twitter-bootstrap-rails"
 gem 'rails_12factor', group: :production
 
 # securely configuration
-gem 'figaro', '~> 1.1.1'
+gem "figaro", '~> 1.1.1'
+
+gem "rmagick"
+gem "carrierwave"

@@ -1,0 +1,92 @@
+<%= render 'layouts/headers/dashboard_header' %>
+<div class="background-wrapper" data-background-image-path="assets/background_images/iron_ocean_about_background.jpg">
+  <div class="contakkiner spinner-wrapper">
+    <i class="fa fa-spinner fa-spin fa-5x"></i>
+  </div>
+  <div class="background-curtain">
+    <img src="#" class="background-image background-sizing">
+
+    <div class="blackLayer">
+
+      <section class="top left" style="text-align: left;">
+        <div class="container">
+          <div class="visible-lg">
+
+          </div>
+
+          <div class="visible-md visible-lg">
+            <div class="col-xs-3">
+              <div class="visible-md" style="marddgin: 0 auto; height: 205px; width: 205px; background-color: #ffff00">
+                <%= image_tag current_user.image_url(:medium).to_s, class: "fit-parent" %>
+                <!--<img class="inherent-parent-cover" width="100%" height="100%" src="assets/background_images/iron_ocean_about_background.jpg">-->
+              </div>
+              <div class="visible-lg" style="marddgin: 0 auto; height: 255px; width: 255px; background-color: #ffff00">
+                <!--<img class="inherent-parent-cover" width="100%" height="100%" src="assets/background_images/iron_ocean_about_background.jpg">-->
+                <%= image_tag current_user.image_url(:medium).to_s, class: "fit-parent" %>
+
+              </div>
+              <div style="tesssxt-align: left; margin: 0 auto;">
+
+                <h2><%= current_user.first_name %>
+                  <%= current_user.last_name %></h2>
+
+                <h3><%= current_user.email %></h3>
+                <%= link_to "Edit", edit_user_path(current_user), class: "btn btn-default col-md-12" %>
+                <a class="btn btn-default col-md-12">
+                  Edit
+                </a>
+
+                <div>
+                  <i class="fa fa-envelope"></i> ALex
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xs-9">
+              <% Message.all.each do |message| %>
+                <div>
+                  <%= message.sender.email %> - <%= message.title %> - <%= message.body %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="visible-xs visible-sm">
+            <div class="col-xs-12">
+              <div class="visible-xs visible-sm" style="margin: 0 auto; height: 100px; width: 100px; background-color: #ffff00">
+                <%= image_tag current_user.image_url(:thumb).to_s, class: "fit-parent" %>
+              </div>
+              <!--<div class="visible-md visible-lg" style="margin: 0 auto; height: 200px; width: 200px; background-color: #ffff00">-->
+              <!--<img class="inherent-parent-cover" width="100%" height="100%" src="assets/background_images/iron_ocean_about_background.jpg">-->
+              <!--</div>-->
+              <%= current_user.email %>
+              <%= current_user.first_name %>
+            </div>
+            <div class="col-xs-12">
+              <% Message.all.each do |message| %>
+                  <div>
+                    <%= message.sender.email %> - <%= message.title %> - <%= message.body %>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+
+
+
+        </div>
+      </section>
+
+
+      <!--<section id="intro" class="top intro-section">-->
+      <!--<div class="top">-->
+      <!--<%= current_user.email %>-->
+      <!--</div>-->
+      <!--<h1>Dashboard</h1>-->
+      <!--</section>-->
+      <!--&lt;!&ndash; Services Section &ndash;&gt;-->
+      <!--<section id="services" class="services-section">-->
+      <!--<h1>Dashboard</h1>-->
+      <!--</section>-->
+
+    </div>
+  </div>
+</div>

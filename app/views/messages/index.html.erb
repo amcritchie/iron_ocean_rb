@@ -1,31 +1,86 @@
-<h1>Listing messages</h1>
+<%= render 'layouts/headers/dashboard_header' %>
+<% if true %>
+    <section class="top left">
+      <div class="container">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th class="col-sm-5 col-xs-12">Messages</th>
+            <th class="col-sm-7 hidden-xs"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @users_with_conversation.each do |user| %>
+              <% last_message = Message.where(sender: user, receiver: current_user).last %>
+              <tr class="<% if last_message.unread %>success<% end %>">
+                <td>
+                  <div class="hidden-xs">
+                    <div style="height: 40px; width: 40px; float: left">
+                      <%= image_tag user.image_url(:thumb).to_s, class: "fit-parent" %>
+                    </div>
+                    <h5 style="float: left;">
+                      <%= user.email %>
+                      <% if last_message.unread %>
+                          <a class="btn btn-success small-message">new</a>
+                      <% end %>
+                    </h5>
+                  </div>
+                  <div class="visible-xs">
+                    <div style="height: 100px; width: 100px; float: left">
+                      <%= image_tag user.image_url(:thumb).to_s, class: "fit-parent" %>
+                    </div>
+                    <h3 style="margin: 10px;">
+                      <%= user.email %>
+                      <% if last_message.unread %>
+                          <a class="btn btn-success small-message">new</a>
+                      <% end %>
+                    </h3>
+                    <p><%= last_message.body %></p>
+                  </div>
+                </td>
+                <td class="col-md-4 hidden-xs middle">
+                  <p style="margin: 10px 0">
+                    <%= last_message.body %>
+                  </p>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-<table>
-  <thead>
-    <tr>
-      <th>Sender</th>
-      <th>Receiver</th>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @messages.each do |message| %>
+<% else %>
+    <h1>Listing messages</h1>
+
+    <table>
+      <thead>
       <tr>
-        <td><%= message.sender %></td>
-        <td><%= message.receiver %></td>
-        <td><%= message.title %></td>
-        <td><%= message.body %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Sender</th>
+        <th>Receiver</th>
+        <th>Title</th>
+        <th>Body</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
 
-<br>
+      <tbody>
+      <% @messages.each do |message| %>
+          <tr>
+            <td><%= message.sender %></td>
+            <td><%= message.receiver %></td>
+            <td><%= message.title %></td>
+            <td><%= message.body %></td>
+            <td><%= link_to 'Show', message %></td>
+            <td><%= link_to 'Edit', edit_message_path(message) %></td>
+            <td><%= link_to 'Destroy', message, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Message', new_message_path %>
+    <br>
+
+    <%= link_to 'New Message', new_message_path %>
+<% end %>

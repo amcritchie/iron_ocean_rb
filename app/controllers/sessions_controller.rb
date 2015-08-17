@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:users][:email].downcase)
+    @user = User.find_by(email: params[:user][:email].downcase)
     # p '-=-'*80
     # p @user
     # p @user[:admin]

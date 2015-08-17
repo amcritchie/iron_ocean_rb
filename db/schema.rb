@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150806030000) do
   create_table "messages", force: true do |t|
     t.integer  "sender_id"
     t.integer  "receiver_id"
+    t.boolean  "unread"
     t.string   "title"
     t.text     "body"
     t.datetime "created_at"

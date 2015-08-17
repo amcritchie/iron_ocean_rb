@@ -5,9 +5,9 @@
       <br>
       <div class="bs-example bs-example-tabs">
         <ul id="myTab" class="nav nav-tabs">
-          <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
-          <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
-          <li class=""><a href="#why" data-toggle="tab">Why?</a></li>
+          <li class="active col-md-4t"><a href="#signin" data-toggle="tab">Sign In</a></li>
+          <li class="col-md-4t"><a href="#signup" data-toggle="tab">Register</a></li>
+          <li class="col-md-4t"><a href="#why" data-toggle="tab">Why?</a></li>
         </ul>
       </div>
       <div class="modal-body">
@@ -51,13 +51,14 @@
           </div>
 
           <div class="tab-pane fade" id="signup">
+            <%= render 'users/form' %>
             <!-- Sign Up Form -->
             <%= form_for :user, as: :post, url: login_path(:users), html: { class: 'loginForm'} do |f| %>
                 <fieldset>
                   <div class="control-group col-xs-12">
                     <label class="control-label" for="email">Email:</label>
                     <div class="controls">
-                      <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %>
+                      <%= f.text_field :email, :class => "form-control", :placeholder => "Email", stlye: "autofocuse"%>
                     </div>
                   </div>
 

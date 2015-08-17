@@ -63,6 +63,9 @@ Pushing to heroku with a change to the assets
 -$ git push
 -$ git push heroku master
 
+Carrierwave - after bundle this generator to create the Carrierwave class
+-$ rails g uploader image
+
 
 
 Please feel free to use a different markup language if you do not plan to run

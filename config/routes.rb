@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-  resources :messages
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'iron#home'
+  root 'root#routing'
 
   get 'products' => 'iron#products'
   get 'about' => 'iron#about'
 
   resources :users do
+    resources :messages
+
     # resources :restaurants
     # post 'restaurants/new' => 'restaurants#create'
   end

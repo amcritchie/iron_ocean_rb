@@ -22,7 +22,8 @@ ready = function() {
     var paragraphs = document.getElementsByTagName("p");
     for (var i = 0; i < paragraphs.length; i++) {
         var paragraph = paragraphs.item(i);
-        paragraph.style.setProperty("color", "white", null);
+//        This made all p tags white.
+//        paragraph.style.setProperty("color", "white", null);
     }
 
     Background.setup();
