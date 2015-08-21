@@ -1,79 +1,73 @@
 <!-- Modal -->
-<div class="modal fade login-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md">
+<div class="modal fade login-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <br>
-      <div class="bs-example bs-example-tabs">
-        <ul id="myTab" class="nav nav-tabs">
-          <li class="active col-md-4t"><a href="#signin" data-toggle="tab">Sign In</a></li>
-          <li class="col-md-4t"><a href="#signup" data-toggle="tab">Register</a></li>
-          <li class="col-md-4t"><a href="#why" data-toggle="tab">Why?</a></li>
+      <div>
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#login" data-toggle="tab">Sign In</a></li>
+          <li><a href="#register" data-toggle="tab">Register</a></li>
         </ul>
       </div>
       <div class="modal-body">
-        <div id="myTabContent" class="tab-content">
-
-          <div class="tab-pane fade in" id="why">
-            <p>We need this information so that we can send you the compensations associated with your complete an evaluations. Rest assured your
-              information will not be sold, traded, or given to anyone.</p>
-            <br> Please contact <a href="mailto:gfrase08@gmail.com">Garret Frase</a>
-            for any other inquiries.</p>
-
-          </div>
-
-          <div class="tab-pane fade active in" id="signin">
+        <div class="tab-content">
+          <div class="tab-pane fade active in" id="login">
             <!-- Sign In Form -->
             <%= form_for :user, as: :post, url: login_path(:users), html: { class: 'loginForm'} do |f| %>
                 <fieldset>
-                  <div class="control-group col-xs-12">
-                    <label class="control-label" for="email">Email:</label>
-                    <div class="controls">
-                      <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %>
+                  <div class="form-group col-xs-12">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                      <%= f.text_field :email, :class => "form-control", :placeholder => "Email"%>
                     </div>
                   </div>
-
-                  <div class="control-group col-xs-12">
-                    <label class="control-label" for="password">Password:</label>
-                    <div class="controls">
+                  <div class="form-group col-xs-12">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-key"></i></span>
                       <%= f.password_field :password, :class => "form-control", :placeholder => "Password" %>
                     </div>
                   </div>
-
-                  <div class="control-group col-xs-12">
-                    <label class="control-label" for="signin"></label>
-                    <div class="controls">
-                      <%= f.submit "Login", :class => "btn btn-primary login-submit" %>
-                    </div>
+                  <div class="form-group control-group col-xs-12">
+                    <%= f.submit "Login", :class => "btn btn-primary login-submit col-xs-12" %>
                   </div>
                 </fieldset>
             <% end %>
-
           </div>
 
-          <div class="tab-pane fade" id="signup">
-            <%= render 'users/form' %>
-            <!-- Sign Up Form -->
-            <%= form_for :user, as: :post, url: login_path(:users), html: { class: 'loginForm'} do |f| %>
+          <div class="tab-pane fade" id="register">
+            <!-- Register Form -->
+            <%= form_for(@user) do |f| %>
                 <fieldset>
-                  <div class="control-group col-xs-12">
-                    <label class="control-label" for="email">Email:</label>
-                    <div class="controls">
-                      <%= f.text_field :email, :class => "form-control", :placeholder => "Email", stlye: "autofocuse"%>
+                  <% if @user.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this message from being saved:</h2>
+                        <ul>
+                          <% @user.errors.full_messages.each do |message| %>
+                              <li><%= message %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                  <% end %>
+                  <div class="form-group col-xs-12">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                      <%= f.text_field :email, :class => "form-control", :placeholder => "ironocean@gmail.com" %>
                     </div>
                   </div>
-
-                  <div class="control-group col-xs-12">
-                    <label class="control-label" for="password">Password:</label>
-                    <div class="controls">
-                      <%= f.password_field :password, :class => "form-control", :placeholder => "Password" %>
+                  <div class="form-group col-xs-12">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                      <%= f.password_field :password, :class => "form-control", :placeholder => "password" %>
                     </div>
                   </div>
-
-                  <div class="control-group col-xs-12">
-                    <label class="control-label" for="signin"></label>
-                    <div class="controls">
-                      <%= f.submit "Login", :class => "btn btn-primary login-submit" %>
+                  <div class="form-group col-xs-12">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-picture-o"></i></span>
+                      <%= f.file_field :image, :class => "form-control" %>
                     </div>
+                  </div>
+                  <div class="form-group control-group col-xs-12">
+                    <%= f.submit "Register", :class => "btn btn-primary sign-up-submit col-xs-12" %>
                   </div>
                 </fieldset>
             <% end %>

@@ -14,7 +14,7 @@ var Modal = {
         Modal.$button.find('.standard-view').hide();
         Modal.$button.find('.waiting-view').show();
         data.message = Modal.$modal.find('.optional-message').val() || '';
-        Ajaxx.post(data.route, data, Modal.postAjax);
+        Ajax.post(data.route, data, Modal.postAjax);
     },
     postAjax: function () {
         Modal.$button.find('.standard-view').show();

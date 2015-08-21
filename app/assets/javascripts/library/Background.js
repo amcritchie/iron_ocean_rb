@@ -11,7 +11,7 @@ var Background = {
     },
     setVariable: function ($wrapper) {
         Background.$wrapper = $wrapper;
-        Background.$curtain = $wrapper.find('.background-curtain');
+        Background.$curtain = $wrapper.find('.js-background-curtain');
         Background.$spinner = $wrapper.find('.spinner-wrapper');
         Background.$image = $wrapper.find('.background-image');
     },
