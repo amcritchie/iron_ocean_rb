@@ -71,6 +71,12 @@ Carrierwave - after bundle this generator to create the Carrierwave class
 -$ rails g uploader image
 
 
+Pushing to Digital Ocean
+-Create a droplet
+-Use ubuntu 14.01
+-get ssh key $ cat ~/.ssh/id_rsa.pub
+
+
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150806030000) do
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "admin"
+    t.boolean  "admin",           default: false
     t.string   "image"
     t.string   "first_name"
     t.string   "last_name"
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 20150806030000) do
     t.string   "state"
     t.string   "zip_code"
     t.string   "phone_number"
-    t.boolean  "email_confirmed"
-    t.boolean  "active"
+    t.boolean  "email_confirmed", default: false
+    t.boolean  "active",          default: true
     t.datetime "last_active"
     t.datetime "created_at"
     t.datetime "updated_at"

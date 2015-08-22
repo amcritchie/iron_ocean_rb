@@ -1,32 +1,3 @@
-# server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
-server '45.55.95.242', users: 'root', roles: %w{app db web}, my_property: :my_value
-
-# server "45.55.95.242", :web
-set :users, "root"
-
-set :host, "45.55.95.242"
-
-task :hello do
-  puts "Hello World"
-  run "echo 'hello World' > ~/hello"
-  # runs "#{sudo} cp ~/hello /hello"
-  # goodbye
-end
-
-task :goodbye do
-  puts "Goodbye World"
-end
-after :hello, :goodbye
-
-
-role :demo, %w{45.55.95.242 example.com example.org example.net}
-task :uptime do
-  on roles(:demo), in: :parallel do |host|
-    uptime = capture(:uptime)
-    puts "#{host.hostname} reports: #{uptime}"
-  end
-end
-
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
