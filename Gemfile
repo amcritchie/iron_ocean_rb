@@ -32,11 +32,16 @@ gem 'bcrypt', '~> 3.1.7'
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem 'rake'
+
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-gem 'capistrano'
-# gem 'capistrano',  '~> 3.1'
-gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano', '~> 2.x', require: false, group: :development
+# gem 'capistrano-rvm'
+#
+# group :development do
+#   gem 'capistrano-rails',   '~> 1.1', require: false
+#   gem 'capistrano-bundler', '~> 1.1', require: false
+# end
 
 
 
