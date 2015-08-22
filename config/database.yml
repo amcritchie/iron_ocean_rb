@@ -23,3 +23,5 @@ test:
 production:
   <<: *default
   database: iron_ocean_production
+  username: deployer
+  password: hearmeroar1254
