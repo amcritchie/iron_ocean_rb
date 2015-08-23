@@ -15,19 +15,6 @@
 #### Preparing you Ubuntu server
 ssh into your new server.
 
-xx
-{{md  .. /pat.md}}
-{{md  pat}}
-xy
-{{md  pat.md}}
-xz
-{{md  ./pat.md}}
-cc
-<%= render 'pat' %>
-vv
-
-<%= partial  %>
-
 ```
 $  root@111.222.333.444
 ```
@@ -145,10 +132,10 @@ Vim
 Continue Installing
 ```
 deployer@iron-blog-production:~$ sudo apt-get install rbenv
-deployer@li349-144:~$ rbenv bootstrap-ubuntu-12-04
-deployer@li349-144:~$ rbenv install 2.2.2
-deployer@li349-144:~$ rbenv global 2.2.2
-deployer@li349-144:~$ ruby -v
+deployer@iron-blog-production:~$ rbenv bootstrap-ubuntu-12-04
+deployer@iron-blog-production:~$ rbenv install 2.2.2
+deployer@iron-blog-production:~$ rbenv global 2.2.2
+deployer@iron-blog-production:~$ ruby -v
 ruby 1.9.3p125 (2012-02-16 revision 34643) [i686-linux]
 ```
 
