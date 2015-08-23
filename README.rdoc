@@ -176,13 +176,4 @@ Please feel free to use a different markup language if you do not plan to run
 ###### Setting up a droplet
 
 
-
-```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
-```
-
 gem 'capistrano', '~> 2.x', require: false, group: :development
