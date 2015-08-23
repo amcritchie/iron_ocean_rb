@@ -24,7 +24,9 @@ root@iron-blog-production:~# apt-get update
 Now lets add a few things.
 
 ###### Python Software Properties To add repositories to apt.
-  * ```root@iron-blog-production:~# apt-get -y install curl git-core python-software-properties```
+```
+root@iron-blog-production:~# apt-get -y install curl git-core python-software-properties
+```
 
 ###### Nginx
 ```
