@@ -30,11 +30,7 @@ Now lets add a few things.
   * ```root@iron-blog-production:~# add-apt-repository ppa:nginx/stable```
   * ```root@iron-blog-production:~# apt-get update```
   * ```root@iron-blog-production:~# apt-get -y install nginx```
-  *
-  ```
-  root@iron-blog-production:~# service nginx start
-  asds
-  ```
+  * ```root@iron-blog-production:~# service nginx start ## Server starting```
 
 3. Postgres
   * ```root@iron-blog-production:~# add-apt-repository ppa:pitti/postgresql```
