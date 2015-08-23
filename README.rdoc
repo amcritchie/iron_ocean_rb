@@ -1,3 +1,35 @@
+
+# Deploying with Digialt Ocean, Ubuntu 14.04, Capistrono 2, Ruby 2.2.2, Nginx, and Unicorn
+
+## Setting up a droplet
+* Login to [Digital Ocean](https://cloud.digitalocean.com/)
+* Create a name
+
+
+### Setting up a droplet
+
+#### Setting up a droplet
+
+##### Setting up a droplet
+
+###### Setting up a droplet
+
+
+
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
+
+gem 'capistrano', '~> 2.x', require: false, group: :development
+
+
+
+
+
 == README
 
 This README would normally document whatever steps are necessary to get the
@@ -175,5 +207,14 @@ Please feel free to use a different markup language if you do not plan to run
 
 ###### Setting up a droplet
 
+
+
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
 
 gem 'capistrano', '~> 2.x', require: false, group: :development
