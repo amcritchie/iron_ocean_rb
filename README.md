@@ -13,11 +13,18 @@
 4. Copy you ip "111.222.333.444"
 
 #### Preparing you Ubuntu server
-
+ssh into your new server
 ```
-$ ssh root@111.222.333.444
+root@li349-144:~# apt-get update
 ```
-
+Now lets update, to get all the packages on the server to the latest version.
+```
+root@iron-blog-production:~# apt-get update
+```
+Now lets add a few things.
+```
+root@iron-blog-production:~# apt-get -y install curl git-core python-software-properties
+```
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
