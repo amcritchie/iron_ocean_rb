@@ -10,14 +10,12 @@
   * Ubuntu 14.04
   * IPv6
   * Check ssh key with $ cat ~/.ssh/id_rsa.pub
-* Copy you ip "111.222.333.444"
+4. Copy you ip "111.222.333.444"
 
-##### Preparing you Ubuntu server
-* ssh into your new server ~$ ssh root@111.222.333.444
+#### Preparing you Ubuntu server
+ssh into your new server ~$ ssh root@111.222.333.444
 
-```
-$ ssh root@111.222.333.444
-```
+```$ ssh root@111.222.333.444```
 
 
 This README would normally document whatever steps are necessary to get the
