@@ -1,7 +1,6 @@
 # ReadMe
-### Deploying with Digialt Ocean, Ubuntu 14.04, Capistrono 2, and Ruby 2.2.2
-
-#### Setting up a droplet
+## Deploying with Digialt Ocean, Ubuntu 14.04, Capistrono 2, and Ruby 2.2.2
+### Setting up a droplet
 1. Login to [Digital Ocean](https://cloud.digitalocean.com/)
 2. Create a name with dashes iron-ocean-production
 3. Settings
@@ -11,25 +10,22 @@
   * IPv6
   * Check ssh key with $ cat ~/.ssh/id_rsa.pub
 4. Copy you ip "111.222.333.444"
-
 #### Preparing you Ubuntu server
 ssh into your new server.
-
 ```
-$  root@111.222.333.444
+$ ssh root@111.222.333.444
 ```
 Now lets update, to get all the packages on the server to the latest version.
 ```
 root@iron-blog-production:~# apt-get update
 ```
 Now lets add a few things.
-
-###### Python Software Properties To add repositories to apt.
+##### Python Software Properties To add repositories to apt.
 ```
 root@iron-blog-production:~# apt-get -y install curl git-core python-software-properties
 ```
 
-###### Nginx
+##### Nginx
 ```
 root@iron-blog-production:~# add-apt-repository ppa:nginx/stable
 root@iron-blog-production:~# apt-get update
@@ -37,21 +33,24 @@ root@iron-blog-production:~# apt-get -y install nginx
 root@iron-blog-production:~# service nginx start
 start: Job is already running: nginx
 ```
-###### Postgres
-install
+
+##### Postgres
+###### install
 ```
 root@iron-blog-production:~# add-apt-repository ppa:pitti/postgresql
 root@iron-blog-production:~# apt-get update
 root@iron-blog-production:~# apt-get install postgresql libpq-dev
 ```
-Setup postgres user
+
+###### Setup postgres user
 ```
 root@li349-144:~# sudo -u postgres psql
 postgres=# \password
 Enter new password:
 Enter it again:
 ```
-Create user and database
+
+###### Create user and database
 ```
 postgres=# create user iron with password 'secret';
 CREATE ROLE
@@ -61,21 +60,21 @@ postgres=# \q
 root@iron-blog-production:~#
 ```
 
-###### Postfix for mail
+##### Postfix for mail
 ```
 root@li349-144:~# apt-get install postfix
 [Internet Site]
 [Enter]
 ```
 
-###### Nodejs
+##### Nodejs
 ```
 root@iron-blog-production:~# add-apt-repository ppa:chris-lea/node.js
 root@iron-blog-production:~# apt-get update
 root@iron-blog-production:~# apt-get -y install nodejs
 ```
 
-###### Setup deployer user
+#### Setup deployer user
 ```
 root@iron-blog-production:~# addgroup admin
 Adding group `admin' (GID 1000) ...
@@ -104,9 +103,9 @@ See "man sudo_root" for details.
 deployer@iron-blog-production:/root$ cd ~
 deployer@iron-blog-production:~$
 ```
-###### Ruby
+#### Ruby
 ```
-deployer@iron-blog-production:/root$ curl -L https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
+deployer@iron-blog-production:~$ curl -L https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
 ```
 When this command finishes it will tell us us add some lines to load rbenv
 ```
@@ -138,6 +137,7 @@ deployer@iron-blog-production:~$ rbenv global 2.2.2
 deployer@iron-blog-production:~$ ruby -v
 ruby 1.9.3p125 (2012-02-16 revision 34643) [i686-linux]
 ```
+
 
 
 
