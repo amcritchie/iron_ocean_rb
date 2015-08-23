@@ -16,9 +16,10 @@
 ssh into your new server.
 
 xx
-{{md  .. /pat.md }}
+{{md  .. /pat.md}}
+{{md  pat}}
 xy
-{{md  pat.md }}
+{{md  pat.md}}
 xz
 {{md  ./pat.md}}
 cc
