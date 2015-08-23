@@ -35,11 +35,12 @@ root@iron-blog-production:~# service nginx start
 Starting nginx: nginx.
 ```
 3. Postgres
-```
-root@iron-blog-production:~# add-apt-repository ppa:pitti/postgresql
-root@iron-blog-production:~# apt-get update
-root@iron-blog-production:~# apt-get install postgresql libpq-dev
-```
+ * install
+ ```
+ root@iron-blog-production:~# add-apt-repository ppa:pitti/postgresql
+ root@iron-blog-production:~# apt-get update
+ root@iron-blog-production:~# apt-get install postgresql libpq-dev
+ ```
 Setup postgres user
 ```
 root@li349-144:~# sudo -u postgres psql
