@@ -34,8 +34,8 @@ root@iron-blog-production:~# apt-get -y install nginx
 root@iron-blog-production:~# service nginx start
 Starting nginx: nginx.
 ```
-3. Postgres
- * install
+###### Postgres
+install
   ```
   root@iron-blog-production:~# add-apt-repository ppa:pitti/postgresql
   root@iron-blog-production:~# apt-get update
