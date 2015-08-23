@@ -1,3 +1,12 @@
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+== README
+
 
 # Deploying with Digialt Ocean, Ubuntu 14.04, Capistrono 2, Ruby 2.2.2, Nginx, and Unicorn
 
@@ -28,9 +37,6 @@ gem 'capistrano', '~> 2.x', require: false, group: :development
 
 
 
-
-
-== README
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
