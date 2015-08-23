@@ -1,41 +1,22 @@
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
-
-== README
-
-
-# Deploying with Digialt Ocean, Ubuntu 14.04, Capistrono 2, Ruby 2.2.2, Nginx, and Unicorn
-
-## Setting up a droplet
-* Login to [Digital Ocean](https://cloud.digitalocean.com/)
-* Create a name
-
-
-### Setting up a droplet
-
-#### Setting up a droplet
+### Deploying with Digialt Ocean, Ubuntu 14.04, Capistrono 2, and Ruby 2.2.2
 
 ##### Setting up a droplet
+* Login to [Digital Ocean](https://cloud.digitalocean.com/)
+* Create a name with dashes iron-ocean-production
+* Settings
+  * $5/mo
+  * San Francisco
+  * Ubuntu 14.04
+  * IPv6
+  * Check ssh key with $ cat ~/.ssh/id_rsa.pub
+* Copy you ip "111.222.333.444"
 
-###### Setting up a droplet
+##### Preparing you Ubuntu server
+* ssh into your new server ~$ ssh root@111.222.333.444
 
-
-
-```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
 ```
-
-gem 'capistrano', '~> 2.x', require: false, group: :development
-
-
+$ ssh root@111.222.333.444
+```
 
 
 This README would normally document whatever steps are necessary to get the
