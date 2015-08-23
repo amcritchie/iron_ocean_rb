@@ -23,9 +23,23 @@ root@iron-blog-production:~# apt-get update
 ```
 Now lets add a few things.
 
-1. python
-  * ```# apt-get -y install curl git-core python-software-properties```
-  * ```# apt-get update```
+1. Python Software Properties To add repositories to apt.
+  * ```root@iron-blog-production:~# apt-get -y install curl git-core python-software-properties```
+
+2. Nginx
+  * ```root@iron-blog-production:~# add-apt-repository ppa:nginx/stable```
+  * ```root@iron-blog-production:~# apt-get update```
+  * ```root@iron-blog-production:~# apt-get -y install nginx```
+  * ```
+  root@iron-blog-production:~# service nginx start
+  asds
+  ```
+
+3. Postgres
+  * ```root@iron-blog-production:~# add-apt-repository ppa:pitti/postgresql```
+  * ```root@iron-blog-production:~# apt-get update```
+  * ```root@iron-blog-production:~# apt-get install postgresql libpq-dev```
+
 ```
 root@iron-blog-production:~# apt-get -y install curl git-core python-software-properties
 ```
