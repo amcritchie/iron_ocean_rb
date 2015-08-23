@@ -34,7 +34,7 @@ root@iron-blog-production:~# add-apt-repository ppa:nginx/stable
 root@iron-blog-production:~# apt-get update
 root@iron-blog-production:~# apt-get -y install nginx
 root@iron-blog-production:~# service nginx start
-Starting nginx: nginx.
+start: Job is already running: nginx
 ```
 ###### Postgres
 install
@@ -52,11 +52,84 @@ Enter it again:
 ```
 Create user and database
 ```
-postgres=# create user iron with password 'hrm';
+postgres=# create user iron with password 'secret';
 CREATE ROLE
 postgres=# create database iron_ocean_production owner iron;
 CREATE DATABASE
+postgres=# \q
+root@iron-blog-production:~#
 ```
+
+###### Postfix for mail
+```
+root@li349-144:~# apt-get install postfix
+[Internet Site]
+[Enter]
+
+```
+
+###### Nodejs
+```
+root@iron-blog-production:~# add-apt-repository ppa:chris-lea/node.js
+root@iron-blog-production:~# apt-get update
+root@iron-blog-production:~# apt-get -y install nodejs
+```
+
+###### Setup deployer user
+```
+root@iron-blog-production:~# addgroup admin
+Adding group `admin' (GID 1000) ...
+Done.
+root@iron-blog-production:~# adduser deployer --ingroup admin
+Adding user `deployer' ...
+Adding new user `deployer' (1000) with group `admin' ...
+Creating home directory `/home/deployer' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+Changing the user information for deployer
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] Y
+
+root@iron-blog-production:~# su deployer
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+deployer@iron-blog-production:/root$ cd ~
+deployer@iron-blog-production:~$
+```
+###### Ruby
+```
+deployer@iron-blog-production:/root$ curl -L https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
+
+```
+When this command finishes it will tell us us add some lines to load rbenv
+```
+# ~/.bash_profile:
+
+export RBENV_ROOT="${HOME}/.rbenv"
+
+if [ -d "${RBENV_ROOT}" ]; then
+  export PATH="${RBENV_ROOT}/bin:${PATH}"
+  eval "$(rbenv init -)"
+fi
+```
+To edit the file we’ll use Vim.
+```
+deployer@iron-blog-production:~$ vim ~/.bashrc
+```
+Vim
+
+1. ```i```
+2. Add export and if above ```# If not running interactively, don't do anything```
+3. ```esc```
+4 ```:wq```
 
 
 
