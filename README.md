@@ -33,18 +33,13 @@ root@iron-blog-production:~# apt-get update
 root@iron-blog-production:~# apt-get -y install nginx
 root@iron-blog-production:~# service nginx start
 Starting nginx: nginx.
-  ```
-
-2. Nginx
-  * ```root@iron-blog-production:~# add-apt-repository ppa:nginx/stable```
-  * ```root@iron-blog-production:~# apt-get update```
-  * ```root@iron-blog-production:~# apt-get -y install nginx```
-  * ```root@iron-blog-production:~# service nginx start ## Server starting```
-
+```
 3. Postgres
-  * ```root@iron-blog-production:~# add-apt-repository ppa:pitti/postgresql```
-  * ```root@iron-blog-production:~# apt-get update```
-  * ```root@iron-blog-production:~# apt-get install postgresql libpq-dev```
+```
+root@iron-blog-production:~# add-apt-repository ppa:pitti/postgresql
+root@iron-blog-production:~# apt-get update
+root@iron-blog-production:~# apt-get install postgresql libpq-dev
+```
 
 ```
 root@iron-blog-production:~# apt-get -y install curl git-core python-software-properties
