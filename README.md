@@ -40,6 +40,22 @@ root@iron-blog-production:~# add-apt-repository ppa:pitti/postgresql
 root@iron-blog-production:~# apt-get update
 root@iron-blog-production:~# apt-get install postgresql libpq-dev
 ```
+Setup postgres user
+```
+root@li349-144:~# sudo -u postgres psql
+postgres=# \password
+Enter new password:
+Enter it again:
+```
+Create user and database
+```
+postgres=# create user iron with password 'hrm';
+CREATE ROLE
+postgres=# create database iron_ocean_production owner iron;
+CREATE DATABASE
+```
+
+
 
 ```
 root@iron-blog-production:~# apt-get -y install curl git-core python-software-properties
