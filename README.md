@@ -14,6 +14,15 @@
 
 #### Preparing you Ubuntu server
 ssh into your new server.
+
+xx
+{{md  .. /pat.md }}
+xy
+{{md  pat.md }}
+xz
+{{md  ./pat.md}}
+cc
+
 ```
 $  root@111.222.333.444
 ```
@@ -65,7 +74,6 @@ root@iron-blog-production:~#
 root@li349-144:~# apt-get install postfix
 [Internet Site]
 [Enter]
-
 ```
 
 ###### Nodejs
@@ -107,7 +115,6 @@ deployer@iron-blog-production:~$
 ###### Ruby
 ```
 deployer@iron-blog-production:/root$ curl -L https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
-
 ```
 When this command finishes it will tell us us add some lines to load rbenv
 ```
@@ -127,9 +134,18 @@ deployer@iron-blog-production:~$ vim ~/.bashrc
 Vim
 
 1. ```i```
-2. Add export and if above ```# If not running interactively, don't do anything```
+2. Add export and if statement above ```# If not running interactively, don't do anything```
 3. ```esc```
-4 ```:wq```
+4. ```:wq```
+Continue Installing
+```
+deployer@iron-blog-production:~$ sudo apt-get install rbenv
+deployer@li349-144:~$ rbenv bootstrap-ubuntu-12-04
+deployer@li349-144:~$ rbenv install 2.2.2
+deployer@li349-144:~$ rbenv global 2.2.2
+deployer@li349-144:~$ ruby -v
+ruby 1.9.3p125 (2012-02-16 revision 34643) [i686-linux]
+```
 
 
 
