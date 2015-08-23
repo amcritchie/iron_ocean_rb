@@ -1,9 +1,10 @@
+# ReadMe
 ### Deploying with Digialt Ocean, Ubuntu 14.04, Capistrono 2, and Ruby 2.2.2
 
-##### Setting up a droplet
-* Login to [Digital Ocean](https://cloud.digitalocean.com/)
-* Create a name with dashes iron-ocean-production
-* Settings
+#### Setting up a droplet
+1) Login to [Digital Ocean](https://cloud.digitalocean.com/)
+2) Create a name with dashes iron-ocean-production
+3) Settings
   * $5/mo
   * San Francisco
   * Ubuntu 14.04
