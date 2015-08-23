@@ -22,9 +22,10 @@ Now lets update, to get all the packages on the server to the latest version.
 root@iron-blog-production:~# apt-get update
 ```
 Now lets add a few things.
+
 1. python
   * ```# apt-get -y install curl git-core python-software-properties```
-  * # apt-get update
+  * ```# apt-get update```
 ```
 root@iron-blog-production:~# apt-get -y install curl git-core python-software-properties
 ```
