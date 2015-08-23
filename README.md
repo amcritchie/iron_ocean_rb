@@ -30,7 +30,8 @@ Now lets add a few things.
   * ```root@iron-blog-production:~# add-apt-repository ppa:nginx/stable```
   * ```root@iron-blog-production:~# apt-get update```
   * ```root@iron-blog-production:~# apt-get -y install nginx```
-  * ```
+  *
+  ```
   root@iron-blog-production:~# service nginx start
   asds
   ```
