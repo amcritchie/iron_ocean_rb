@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 
-server "104.236.170.16", :web, :app, :db, primary: true
+server "104.131.130.82", :web, :app, :db, primary: true
 
 set :application, "iron_ocean"
 set :user, "deployer"

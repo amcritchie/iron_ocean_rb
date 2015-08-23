@@ -73,8 +73,82 @@ Carrierwave - after bundle this generator to create the Carrierwave class
 
 Pushing to Digital Ocean
 -Create a droplet
+--Droplet Host name: iron-ocean-production
+--$5
+--San Fransicso
+--Ubuntu
 -Use ubuntu 14.01
 -get ssh key $ cat ~/.ssh/id_rsa.pub
+
+Preparing Ubuntu server.
+-SSH into the server
+--$ ssh root@107.170.223.75
+--yes
+-Udpate to get the latest packages
+--# apt-get -y update
+-Used for adding Repos to apt
+--# apt-get -y install curl git-core pythone-software-properties
+-Get nginx
+--# add-apt-repository ppa:nginx/stable
+--[Enter]
+-Update again
+--# apt-get -y update
+-Install nginx
+--# apt-get -y install nginx
+-Start nginx
+--# service nginx start
+-Add latest postgres
+--# add-apt-repository ppa:pitti/postgresql
+--[Enter]
+-Update again
+--# apt-get -y update
+-Install postgres
+--# apt-get -y install postgresql libpq-dev
+
+-Login as postgres user
+--# sudo -u postgres psql
+--# \password
+--: hmr
+--: hmr
+--# create user ironocean with password 'secret';
+--# create database iron_ocean_production owner ironocean;
+--# \q
+
+-Intall application for mailing
+--# apt-get -y install telnet postfix
+--[Enter]
+--[Enter]
+
+-Add nodejs
+--# add-apt-repository ppa:chris-lea/node.js
+--# apt-get -y update
+--# apt-get -y install nodejs
+
+-Create deployer
+--# adduser deployer
+--: hmr
+--: hmr
+--] [Enter][Enter][Enter][Enter][Enter] Y
+--# su deployer
+--# cd
+
+-Adding ruby
+--# curl https://raw.githubusercontent.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
+-Add to Bash rc
+if [ -d "${RBENV_ROOT}" ]; then
+  export PATH="${RBENV_ROOT}/bin:${PATH}"
+  eval "$(rbenv init -)"
+fi
+--# vim ~/.bashrc
+--i
+-Load if stament before first function
+--esc
+--:wq
+
+
+-Load Bash RC
+--$ . ~/.bashrc
+
 
 
 
