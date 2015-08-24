@@ -213,6 +213,7 @@ Bundler version 1.1.3
 There are quite a few of commands and files used to prepare Capistrano.
 This read me will only focus the specifics that need to be changed from this repo.
 To view the specifics view visit [Railscast](http://railscasts.com/episodes/335-deploying-to-a-vps?view=asciicast)
+
 1. Verify the Capfile has the `load 'deploy/assets'` line uncommented
 2. In your deploy.rb update the ip address and github application name
 3. Replace the iron_ocean variables in nginx and unicorn files
