@@ -163,18 +163,19 @@ deployer@iron-ocean-production:~$ . ~/.bashrc
 ```
 
 ##### Install
-This comand should be able to be run with out installing rbenv.  If you run rbenv install the wrong version will be installed.  If you are being told you need to install rbenv to run this command, it probably means you didn't add the bashrc file.
 ```
 deployer@iron-ocean-production:~$ rbenv bootstrap-ubuntu-12-04
 ```
-
+If you recieve an error about not having rbenv installed,
+this probably means didn't add the bashrc file.
 ```
 deployer@iron-ocean-production:~$ rbenv install 2.2.2
 deployer@iron-ocean-production:~$ rbenv global 2.2.2
 deployer@iron-ocean-production:~$ ruby -v
 ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
 ```
-
+If ruby 2.2.2 isn't returned with ```$ ruby -v```
+this is a red flag that something has gone wrong in this process.
 
 
 
