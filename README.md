@@ -1,6 +1,6 @@
 # ReadMe
 ## Deploying with Digialt Ocean, Ubuntu 14.04, Capistrono 2, and Ruby 2.2.2
-### Setting up a droplet
+### Creating a server
 1. Login to [Digital Ocean](https://cloud.digitalocean.com/)
 2. Create a name with dashes iron-ocean-production
 3. Settings
@@ -10,6 +10,7 @@
   * IPv6
   * Check ssh key with $ cat ~/.ssh/id_rsa.pub
 4. Copy you ip "111.222.333.444"
+
 #### Preparing you Ubuntu server
 ssh into your new server.
 ```
@@ -35,7 +36,7 @@ start: Job is already running: nginx
 ```
 
 ##### Postgres
-###### install
+###### Install
 ```
 root@iron-blog-production:~# add-apt-repository ppa:pitti/postgresql
 root@iron-blog-production:~# apt-get update
