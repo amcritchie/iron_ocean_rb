@@ -1,5 +1,5 @@
 # ReadMe
-## Deploying with Digialt Ocean, Ubuntu 14.04, Capistrono 2, and Ruby 2.2.2
+## Deploying with Digialt Ocean, Ubuntu 14.04, Capistrano 2, and Ruby 2.2.2
 ### Creating a server
 1. Login to [Digital Ocean](https://cloud.digitalocean.com/)
 2. Create a name with dashes iron-ocean-production
@@ -195,7 +195,7 @@ Bundler version 1.1.3
  Warning: Permanently added 'github.com,207.97.227.239' (RSA) to the list of known hosts.
  Permission denied (publickey).
  ```
- 
+
 2. Verify `/config/database.yml` is in the `.gitignore` file
 3. Push your code to github
 4. Add Capistrano and Unicorn to the gem file.  Be sure to use Capistrano 2
@@ -206,6 +206,41 @@ Bundler version 1.1.3
   # Use Capistrano for deployment
   gem 'capistrano', '~> 2.x', require: false, group: :development
   ```
+5. Install gems `$ bundle`
+
+### Capistrano
+
+There are quite a few of commands and files used to prepare Capistrano.
+This read me will only focus the specifics that need to be changed from this repo.
+To view the specifics view visit [Railscast](http://railscasts.com/episodes/335-deploying-to-a-vps?view=asciicast)
+1. Verify the Capfile has the `load 'deploy/assets'` line uncommented
+2. In your deploy.rb update the ip address and github application name
+3. Replace the iron_ocean variables in nginx and unicorn files
+  * nginx.conf (2)
+  * unicorn.rb (2)
+  * unicorn_init.sh (1)
+3. In the nginx.conf file replace all the iron_ocean variables.
+4. In the unicorn.rb file replace all the iron_ocean variables.
+5. In the unicorn_init.sh
+#### Capify
+This repo already has the capify files but if you have a new repo use this command
+```
+$ capify .
+[add] writing './Capfile'
+[add] writing './config/deploy.rb'
+[done] capified!
+``
+
+#### Capfile
+Verify you Capfile reads as follows
+```
+load 'deploy'
+# Uncomment if you are using Rails' asset pipeline
+load 'deploy/assets'
+Dir['vendor/gems/*/recipes/*.rb','vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
+load 'config/deploy' # remove this line to skip loading any of the default tasks
+```
+####
 
 
 
@@ -373,7 +408,7 @@ Please feel free to use a different markup language if you do not plan to run
 
 
 
-# Deploying with Digialt Ocean, Ubuntu 14.04, Capistrono 2, Ruby 2.2.2, Nginx, and Unicorn
+# Deploying with Digialt Ocean, Ubuntu 14.04, Capistrano 2, Ruby 2.2.2, Nginx, and Unicorn
 
 ## Setting up a droplet
 * Login to [Digital Ocean](https://cloud.digitalocean.com/)
