@@ -195,6 +195,7 @@ Bundler version 1.1.3
  Warning: Permanently added 'github.com,207.97.227.239' (RSA) to the list of known hosts.
  Permission denied (publickey).
  ```
+ 
 2. Verify `/config/database.yml` is in the `.gitignore` file
 3. Push your code to github
 4. Add Capistrano and Unicorn to the gem file.  Be sure to use Capistrano 2
