@@ -166,7 +166,7 @@ deployer@iron-ocean-production:~$ . ~/.bashrc
 ```
 deployer@iron-ocean-production:~$ rbenv bootstrap-ubuntu-12-04
 ```
-If you recieve an error about not having rbenv installed,
+If this returns an error about not having rbenv installed,
 this probably means didn't add the bashrc file.
 ```
 deployer@iron-ocean-production:~$ rbenv install 2.2.2
