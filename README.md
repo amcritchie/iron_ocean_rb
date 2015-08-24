@@ -216,13 +216,12 @@ To view the specifics view visit [Railscast](http://railscasts.com/episodes/335-
 
 1. Verify the Capfile has the `load 'deploy/assets'` line uncommented
 2. In your deploy.rb update the ip address and github application name
-3. Replace the iron_ocean variables in nginx and unicorn files
+3. Replace the 'iron_ocean' variables in nginx and unicorn files
   * nginx.conf (2)
   * unicorn.rb (2)
   * unicorn_init.sh (1)
-3. In the nginx.conf file replace all the iron_ocean variables.
-4. In the unicorn.rb file replace all the iron_ocean variables.
-5. In the unicorn_init.sh
+4. Mark the unicorn_init as executable `$ chmod +x config/unicorn_init.sh`
+
 #### Capify
 This repo already has the capify files but if you have a new repo use this command
 ```
