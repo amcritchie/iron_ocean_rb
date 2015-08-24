@@ -162,7 +162,7 @@ Load updated bashrc
 deployer@iron-ocean-production:~$ . ~/.bashrc
 ```
 
-Continue Installing
+##### Install
 This comand should be able to be run with out installing rbenv.  If you run rbenv install the wrong version will be installed.  If you are being told you need to install rbenv to run this command, it probably means you didn't add the bashrc file.
 ```
 deployer@iron-ocean-production:~$ rbenv bootstrap-ubuntu-12-04
