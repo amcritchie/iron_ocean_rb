@@ -166,15 +166,14 @@ deployer@iron-ocean-production:~$ . ~/.bashrc
 ```
 deployer@iron-ocean-production:~$ rbenv bootstrap-ubuntu-12-04
 ```
-If this returns a message about rbenv not being installed,
-this probably means didn't add the bashrc file.
+If you are told 'rbenv' isn't installed, this probably means didn't add the bashrc file.
 ```
 deployer@iron-ocean-production:~$ rbenv install 2.2.2
 deployer@iron-ocean-production:~$ rbenv global 2.2.2
 deployer@iron-ocean-production:~$ ruby -v
 ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
 ```
-If ruby 2.2.2 isn't returned with ```$ ruby -v```
+If ruby 2.2.2 isn't returned,
 this is a red flag that something has gone wrong in this process.
 
 
