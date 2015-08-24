@@ -11,36 +11,36 @@
   * Check ssh key with $ cat ~/.ssh/id_rsa.pub
 4. Copy you ip "111.222.333.444"
 
-#### Preparing you Ubuntu server
+#### Preparing your Ubuntu server
 ssh into your new server.
 ```
 $ ssh root@111.222.333.444
 ```
 Now lets update, to get all the packages on the server to the latest version.
 ```
-root@iron-blog-production:~# apt-get update
+root@iron-ocean-production:~# apt-get update
 ```
 Now lets add a few things.
 ##### Python Software Properties To add repositories to apt.
 ```
-root@iron-blog-production:~# apt-get -y install curl git-core python-software-properties
+root@iron-ocean-production:~# apt-get -y install curl git-core python-software-properties
 ```
 
 ##### Nginx
 ```
-root@iron-blog-production:~# add-apt-repository ppa:nginx/stable
-root@iron-blog-production:~# apt-get update
-root@iron-blog-production:~# apt-get -y install nginx
-root@iron-blog-production:~# service nginx start
+root@iron-ocean-production:~# add-apt-repository ppa:nginx/stable
+root@iron-ocean-production:~# apt-get update
+root@iron-ocean-production:~# apt-get -y install nginx
+root@iron-ocean-production:~# service nginx start
 start: Job is already running: nginx
 ```
 
 ##### Postgres
 ###### Install
 ```
-root@iron-blog-production:~# add-apt-repository ppa:pitti/postgresql
-root@iron-blog-production:~# apt-get update
-root@iron-blog-production:~# apt-get install postgresql libpq-dev
+root@iron-ocean-production:~# add-apt-repository ppa:pitti/postgresql
+root@iron-ocean-production:~# apt-get update
+root@iron-ocean-production:~# apt-get install postgresql libpq-dev
 ```
 
 ###### Setup postgres user
@@ -58,7 +58,7 @@ CREATE ROLE
 postgres=# create database iron_ocean_production owner iron;
 CREATE DATABASE
 postgres=# \q
-root@iron-blog-production:~#
+root@iron-ocean-production:~#
 ```
 
 ##### Postfix for mail
@@ -70,17 +70,17 @@ root@li349-144:~# apt-get install postfix
 
 ##### Nodejs
 ```
-root@iron-blog-production:~# add-apt-repository ppa:chris-lea/node.js
-root@iron-blog-production:~# apt-get update
-root@iron-blog-production:~# apt-get -y install nodejs
+root@iron-ocean-production:~# add-apt-repository ppa:chris-lea/node.js
+root@iron-ocean-production:~# apt-get update
+root@iron-ocean-production:~# apt-get -y install nodejs
 ```
 
 #### Setup deployer user
 ```
-root@iron-blog-production:~# addgroup admin
+root@iron-ocean-production:~# addgroup admin
 Adding group `admin' (GID 1000) ...
 Done.
-root@iron-blog-production:~# adduser deployer --ingroup admin
+root@iron-ocean-production:~# adduser deployer --ingroup admin
 Adding user `deployer' ...
 Adding new user `deployer' (1000) with group `admin' ...
 Creating home directory `/home/deployer' ...
@@ -97,22 +97,26 @@ Enter the new value, or press ENTER for the default
         Other []:
 Is the information correct? [Y/n] Y
 
-root@iron-blog-production:~# su deployer
+root@iron-ocean-production:~# su deployer
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
-deployer@iron-blog-production:/root$ cd ~
-deployer@iron-blog-production:~$
+deployer@iron-ocean-production:/root$ cd ~
+deployer@iron-ocean-production:~$
 ```
 #### Ruby
 ```
-deployer@iron-blog-production:~$ curl -L https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
+deployer@iron-ocean-production:~$ curl -L https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
 ```
 When this command finishes it will tell us us add some lines to load rbenv
 ```
 # ~/.bash_profile:
 
 export RBENV_ROOT="${HOME}/.rbenv"
+
+---
+
+------------------------sadasdsa-------------------
 
 if [ -d "${RBENV_ROOT}" ]; then
   export PATH="${RBENV_ROOT}/bin:${PATH}"
@@ -121,7 +125,7 @@ fi
 ```
 To edit the file we’ll use Vim.
 ```
-deployer@iron-blog-production:~$ vim ~/.bashrc
+deployer@iron-ocean-production:~$ vim ~/.bashrc
 ```
 Vim
 
@@ -129,14 +133,20 @@ Vim
 2. Add export and if statement above ```# If not running interactively, don't do anything```
 3. ```esc```
 4. ```:wq```
-Continue Installing
+
+Load updated bashrc
 ```
-deployer@iron-blog-production:~$ sudo apt-get install rbenv
-deployer@iron-blog-production:~$ rbenv bootstrap-ubuntu-12-04
-deployer@iron-blog-production:~$ rbenv install 2.2.2
-deployer@iron-blog-production:~$ rbenv global 2.2.2
-deployer@iron-blog-production:~$ ruby -v
-ruby 1.9.3p125 (2012-02-16 revision 34643) [i686-linux]
+deployer@iron-ocean-production:~$ . ~/.bashrc
+```
+
+Continue Installing
+
+```
+deployer@iron-ocean-production:~$ rbenv bootstrap-ubuntu-12-04
+deployer@iron-ocean-production:~$ rbenv install 2.2.2
+deployer@iron-ocean-production:~$ rbenv global 2.2.2
+deployer@iron-ocean-production:~$ ruby -v
+ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
 ```
 
 
