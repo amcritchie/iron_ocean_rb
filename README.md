@@ -217,10 +217,54 @@ To view the specifics view visit [Railscast](http://railscasts.com/episodes/335-
 1. Verify the Capfile has the `load 'deploy/assets'` line uncommented
 2. In your deploy.rb update the ip address and github application name
 3. Replace the 'iron_ocean' variables in nginx and unicorn files
-  * nginx.conf (2)
-  * unicorn.rb (2)
-  * unicorn_init.sh (1)
+  * (2) nginx.conf
+  * (2) unicorn.rb
+  * (1) unicorn_init.sh
 4. Mark the unicorn_init as executable `$ chmod +x config/unicorn_init.sh`
+5. Push your code to github
+
+### Deploy
+#### Setup
+Capistrano setup will create a few files
+```
+$ cap deploy:setup
+```
+#### Database
+```
+$ ssh deployer@178.xxx.xxx.xxx
+deployer@li349-144:~$ cd apps/blog/shared/config/
+deployer@li349-144:~/apps/blog/shared/config$ vim database.yml
+```
+Update the host, username, and password
+```
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: blog_production
+  pool: 5
+  host: localhost
+  username: ironocean
+  password: secret
+```
+#### Logging Into The Server Automatically
+```
+$ cat ~/.ssh/id_rsa.pub | ssh deployer@178.xxx.xxx.xxx 'cat >> ~/.ssh/authorized_keys'
+$ ssh-add -K
+$ cap deploy:cold
+```
+##### Configure Nginx
+```
+$ ssh deployer@178.xxx.xxx.xxx
+deployer@li349-144:~$ sudo rm /etc/nginx/sites-enabled/default
+[sudo] password for deployer:
+deployer@li349-144:~$ sudo service nginx restart
+Restarting nginx: nginx.
+```
+
+```
+sudo update-rc.d unicorn_iron_ocean defaults
+```
+
 
 #### Capify
 This repo already has the capify files but if you have a new repo use this command
