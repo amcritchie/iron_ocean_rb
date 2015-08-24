@@ -177,6 +177,44 @@ If ruby 2.2.2 isn't returned,
 this is a red flag that something has gone wrong in this process.
 
 
+#### Bundler
+```
+deployer@iron-ocean-production:~$ gem install bundler --no-ri --no-rdoc
+deployer@iron-ocean-production:~$ rbenv rehash
+deployer@iron-ocean-production:~$ bundle -v
+Bundler version 1.1.3
+```
+
+### Preparing application
+1. Attempt an ssh connection to github.com on our server so that it’s known as a host.
+ ```
+ deployer@li349-144:~$ ssh git@github.com
+ The authenticity of host 'github.com (207.97.227.239)' can't be established.
+ RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+ Are you sure you want to continue connecting (yes/no)? yes
+ Warning: Permanently added 'github.com,207.97.227.239' (RSA) to the list of known hosts.
+ Permission denied (publickey).
+ ```
+2. Verify `/config/database.yml` is in the `.gitignore` file
+3. Push your code to github
+4. Add Capistrano and Unicorn to the gem file.  Be sure to use Capistrano 2
+ ```
+ # Use unicorn as the app server
+ gem 'unicorn'
+
+ # Use Capistrano for deployment
+ gem 'capistrano', '~> 2.x', require: false, group: :development
+ ```
+
+  ```ruby
+  # Use unicorn as the app server
+  gem 'unicorn'
+
+  # Use Capistrano for deployment
+  gem 'capistrano', '~> 2.x', require: false, group: :development
+  ```
+
+
 
 ```
 root@iron-blog-production:~# apt-get -y install curl git-core python-software-properties
