@@ -96,7 +96,8 @@ Enter the new value, or press ENTER for the default
         Home Phone []:
         Other []:
 Is the information correct? [Y/n] Y
-
+```
+```
 root@iron-ocean-production:~# su deployer
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
@@ -110,18 +111,22 @@ deployer@iron-ocean-production:~$ curl -L https://raw.github.com/fesplugas/rbenv
 ```
 When this command finishes it will tell us us add some lines to load rbenv
 ```
+# for examples
+
+-------------------Add--------------------
 # ~/.bash_profile:
 
 export RBENV_ROOT="${HOME}/.rbenv"
 
----
-
-------------------------sadasdsa-------------------
 
 if [ -d "${RBENV_ROOT}" ]; then
   export PATH="${RBENV_ROOT}/bin:${PATH}"
   eval "$(rbenv init -)"
 fi
+-------------------Add--------------------
+
+# If not running interactively, don't do anything
+case $- in
 ```
 To edit the file we’ll use Vim.
 ```
@@ -140,9 +145,12 @@ deployer@iron-ocean-production:~$ . ~/.bashrc
 ```
 
 Continue Installing
-
+This comand should be able to be run with out installing rbenv.  If you run rbenv install the wrong version will be installed.  If you are being told you need to install rbenv to run this command, it probably means you didn't add the bashrc file.
 ```
 deployer@iron-ocean-production:~$ rbenv bootstrap-ubuntu-12-04
+```
+
+```
 deployer@iron-ocean-production:~$ rbenv install 2.2.2
 deployer@iron-ocean-production:~$ rbenv global 2.2.2
 deployer@iron-ocean-production:~$ ruby -v
