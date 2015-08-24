@@ -106,6 +106,7 @@ deployer@iron-ocean-production:/root$ cd ~
 deployer@iron-ocean-production:~$
 ```
 #### Ruby
+##### Get rbenv
 ```
 deployer@iron-ocean-production:~$ curl -L https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
 ```
@@ -113,9 +114,8 @@ When this command finishes, we will be told that we haven't added to 'rbenv' to
 our load path.  The command will also end in the code segment we need to our bashrc so make sure you copy it.
 
 ```
-# for examples
+Seems you still have not added 'rbenv' to the load path:
 
--------------------Add--------------------
 # ~/.bash_profile:
 
 export RBENV_ROOT="${HOME}/.rbenv"
@@ -125,16 +125,13 @@ if [ -d "${RBENV_ROOT}" ]; then
   export PATH="${RBENV_ROOT}/bin:${PATH}"
   eval "$(rbenv init -)"
 fi
--------------------Add--------------------
-
-# If not running interactively, don't do anything
-case $- in
 ```
+
 To edit the file we’ll use Vim.
 ```
 deployer@iron-ocean-production:~$ vim ~/.bashrc
 ```
-Vim
+##### Vim
 
 1. ```i```
 2. Add rbenv to our load path
@@ -157,8 +154,6 @@ Vim
  # If not running interactively, don't do anything
  case $- in
  ```
-
- and if statement above ```# If not running interactively, don't do anything```
 3. ```esc```
 4. ```:wq```
 
