@@ -32,16 +32,10 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     respond_to do |format|
-      # if @user.update(user_params)
-      p '-='*100
-      p user_params
-      p '-='*100
       if current_user.update(user_params)
-        p 'update'*100
         format.html { redirect_to @user, notice: 'Message was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
-        p 'edit'*100
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -64,6 +58,9 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def password_recovery
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -15,9 +15,7 @@ class RootController < ApplicationController
   end
 
   def dashboard
-
     @new_messages = Message.where(receiver_id: current_user, unread: true)
-
     render 'dashboard'
   end
 

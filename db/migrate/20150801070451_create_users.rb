@@ -12,9 +12,13 @@ class CreateUsers < ActiveRecord::Migration
       t.string :state
       t.string :zip_code
       t.string :phone_number
+      t.string :password_reset_token
+
       t.boolean :email_confirmed, :default => false
       t.boolean :active, :default => true
+
       t.timestamp :last_active
+      t.timestamp :password_reset_sent
 
       t.timestamps
     end

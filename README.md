@@ -1,5 +1,5 @@
 # ReadMe
-## Deploying with Digialt Ocean, Ubuntu 14.04, Capistrano 2, and Ruby 2.2.2
+## Deploying with Digialt Ocean, Ubuntu 14.04, Capistrano 2, Ruby 2.2.2, Nginx, and Unicorn
 ### Creating a server
 1. Login to [Digital Ocean](https://cloud.digitalocean.com/)
 2. Create a name with dashes iron-ocean-production
@@ -45,7 +45,7 @@ root@iron-ocean-production:~# apt-get install postgresql libpq-dev
 
 ###### Setup postgres user
 ```
-root@li349-144:~# sudo -u postgres psql
+root@iron-ocean-production:~# sudo -u postgres psql
 postgres=# \password
 Enter new password:
 Enter it again:
@@ -63,7 +63,7 @@ root@iron-ocean-production:~#
 
 ##### Postfix for mail
 ```
-root@li349-144:~# apt-get install postfix
+root@iron-ocean-production:~# apt-get install postfix
 [Internet Site]
 [Enter]
 ```
@@ -182,13 +182,13 @@ this is a red flag that something has gone wrong in this process.
 deployer@iron-ocean-production:~$ gem install bundler --no-ri --no-rdoc
 deployer@iron-ocean-production:~$ rbenv rehash
 deployer@iron-ocean-production:~$ bundle -v
-Bundler version 1.1.3
+Bundler version 1.10.6
 ```
 
 ### Preparing application
 1. Attempt an ssh connection to github.com on our server so that it’s known as a host.
  ```
- deployer@li349-144:~$ ssh git@github.com
+ deployer@iron-ocean-production:~$ ssh git@github.com
  The authenticity of host 'github.com (207.97.227.239)' can't be established.
  RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
  Are you sure you want to continue connecting (yes/no)? yes
@@ -215,7 +215,7 @@ This read me will only focus the specifics that need to be changed from this rep
 To view the specifics view visit [Railscast](http://railscasts.com/episodes/335-deploying-to-a-vps?view=asciicast)
 
 1. Verify the Capfile has the `load 'deploy/assets'` line uncommented
-2. In your deploy.rb update the ip address and github application name
+2. In your deploy.rb update the ip address, application name, and github url
 3. Replace the 'iron_ocean' variables in nginx and unicorn files
   * (2) nginx.conf
   * (2) unicorn.rb
@@ -229,11 +229,12 @@ Capistrano setup will create a few files
 ```
 $ cap deploy:setup
 ```
+If this returns and error, check that you have a database.example.yml
 #### Database
 ```
 $ ssh deployer@178.xxx.xxx.xxx
-deployer@li349-144:~$ cd apps/blog/shared/config/
-deployer@li349-144:~/apps/blog/shared/config$ vim database.yml
+deployer@iron-ocean-production:~$ cd apps/**name-of-app**/shared/config/
+deployer@iron-ocean-production:~/apps/**name-of-app**/shared/config$ vim database.yml
 ```
 Update the host, username, and password
 ```
@@ -252,12 +253,12 @@ $ cat ~/.ssh/id_rsa.pub | ssh deployer@178.xxx.xxx.xxx 'cat >> ~/.ssh/authorized
 $ ssh-add -K
 $ cap deploy:cold
 ```
-##### Configure Nginx
+#### Configure Nginx
 ```
 $ ssh deployer@178.xxx.xxx.xxx
-deployer@li349-144:~$ sudo rm /etc/nginx/sites-enabled/default
+deployer@iron-ocean-production:~$ sudo rm /etc/nginx/sites-enabled/default
 [sudo] password for deployer:
-deployer@li349-144:~$ sudo service nginx restart
+deployer@iron-ocean-production:~$ sudo service nginx restart
 Restarting nginx: nginx.
 ```
 
