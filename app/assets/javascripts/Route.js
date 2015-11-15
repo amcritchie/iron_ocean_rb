@@ -2,6 +2,7 @@ var Route = {
     page: function() {
         Background.setup();
         Form.login();
+        Form.contactForm();
 
         Route.admin();
         Route.user();

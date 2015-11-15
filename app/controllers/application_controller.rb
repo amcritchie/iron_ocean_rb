@@ -4,10 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-    p '1'*100
     if session[:user_id]
-      p '2'*100
-      p session[:user_id]
       User.find_by(id: session[:user_id])
     end
   end

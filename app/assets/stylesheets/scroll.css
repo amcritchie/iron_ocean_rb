@@ -16,7 +16,7 @@ of those sections to manage the look and feel of the site. */
 section {
     height: 100%;
     padding-top: 150px;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 section.top {
@@ -27,3 +27,14 @@ section.left {
     text-align: left;
 }
 
+.center {
+    text-align: center;
+}
+
+.left{
+text-align: left;
+}
+
+.right{
+text-align: right;
+}

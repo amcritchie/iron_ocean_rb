@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     # post 'restaurants/new' => 'restaurants#create'
   end
   get 'password_recovery' => 'users#password_recovery'
+  post 'contact' => 'root#contact'
 
   get 'conversation/:your_id/:user_id' => 'messages#conversation'
 

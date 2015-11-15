@@ -19,4 +19,9 @@ class RootController < ApplicationController
     render 'dashboard'
   end
 
+  def contact
+    AdminMailer.contact(params[:email], params[:message]).deliver
+    render json: {error: "Email / password is invalid."}
+  end
+
 end

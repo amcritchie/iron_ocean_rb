@@ -1,6 +1,6 @@
 var Form = {
-    onSubmit: function ($submitButton, callback) {
-        $submitButton.submit(function (event) {
+    onSubmit: function($submitButton, callback) {
+        $submitButton.submit(function(event) {
             event.preventDefault();
             event.stopPropagation();
             $('.errorInput').removeClass('errorInput');
@@ -9,12 +9,12 @@ var Form = {
         });
     },
     login: function () {
-        Form.onSubmit($('.loginForm'), function (form) {
+        Form.onSubmit($('.loginForm'), function(form) {
             var info = {
                 email: form.find('#user_email').val(),
                 password: form.find('#user_password').val()
             };
-            $.when(Validate.login(info)).done(function (response) {
+            $.when(Validate.login(info)).done(function(response) {
                 if (response.error) {
                     Form.prependErrorMessages(form, {email: response.error});
                 } else {
@@ -23,13 +23,13 @@ var Form = {
             });
         });
     },
-    signUp: function () {
-        Form.onSubmit($('.signUpForm'), function (form) {
+    signUp: function() {
+        Form.onSubmit($('.signUpForm'), function(form) {
 //            var info = Register.inputs();
             var info = Inputs.signUp();
             var errors = Validate.form(form, info, 'user');
             var email = form.find('#user_email').val();
-            $.when(Validate.uniqueEmail(email)).done(function (response) {
+            $.when(Validate.uniqueEmail(email)).done(function(response) {
                 if (response.error) {
                     errors.email = response.error
                 }
@@ -37,7 +37,36 @@ var Form = {
             });
         });
     },
-    restaurant: function () {
+    contactForm: function() {
+        Form.onSubmit($('.contactForm'), function(form) {
+            var info = Inputs.contact();
+            var errors = Validate.form(form, info, 'contact');
+            if ($.isEmptyObject(errors)) {
+                Form.loadSpinner(form, function() {
+                    Ajax.post('/contact', form.serialize(), function(test) {
+                        form.find('input').prop("readonly", true);
+                        form.find('textarea').prop("readonly", true);
+                        form.find('[type=submit]').html('Message sent, Thanks!');
+                    });
+                })
+            } else {
+                Form.prependErrorMessages(form, errors);
+            }
+        });
+    },
+    loadSpinner: function(form, callback) {
+        var $submit = form.find('[type=submit]');
+        $submit.find('.loading').show();
+        $submit.find('.resting').hide();
+        callback();
+    },
+    hideSpinner: function(form, callback) {
+        var $submit = form.find('[type=submit]');
+        $submit.find('.loading').hide();
+        $submit.find('.resting').show();
+        callback();
+    },
+    restaurant: function() {
         Form.onSubmit($('.restaurantForm'), function (form) {
             var info = Inputs.restaurant();
             var errors = Validate.form(form, info, 'restaurant');

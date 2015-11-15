@@ -72,3 +72,16 @@ nav {
 .form-padding{
   padding: 0 15px;
 }
+
+.errorMessage{
+  display: inline-block;
+  padding: 0 8px;
+  margin: 0;
+  margin-left: 10px;
+  color: white;
+  background-color: red;
+}
+
+.loading{
+  display: none;
+}

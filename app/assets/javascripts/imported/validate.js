@@ -60,7 +60,7 @@ var Validate = {
         var selectors = input.inputSelector || ['#' + model + '_' + input.name];
         selectors.forEach(function (selector) {
             var $obj = form.find(selector);
-            if ($obj.val().length === 0) {
+            if ($obj.length && ($obj.val().length === 0)) {
                 $obj.addClass('errorInput');
                 error = 'Please fill in this field';
             }
