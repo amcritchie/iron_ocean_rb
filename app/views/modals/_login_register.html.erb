@@ -4,6 +4,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <br>
+
       <div>
         <ul class="nav nav-tabs">
           <li class="active"><a href="#login" data-toggle="tab">Sign In</a></li>
@@ -14,19 +15,15 @@
         <div class="tab-content">
           <div class="tab-pane fade active in" id="login">
             <!-- Sign In Form -->
-            <%= form_for :user, as: :post, url: login_path(:users), html: { class: 'loginForm'} do |f| %>
+            <%= form_for :user, as: :post, url: login_path(:users), html: {class: 'loginForm'} do |f| %>
                 <fieldset>
                   <div class="form-group col-xs-12">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                      <%= f.text_field :email, :class => "form-control", :placeholder => "Email"%>
-                    </div>
+                    <label for="email">Email:</label>
+                    <%= f.text_field :email, :class => "form-control", :placeholder => "email@gmail.com" %>
                   </div>
                   <div class="form-group col-xs-12">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                      <%= f.password_field :password, :class => "form-control", :placeholder => "Password" %>
-                    </div>
+                    <label for="password">Password:</label>
+                    <%= f.password_field :password, :class => "form-control", :placeholder => "password" %>
                   </div>
                   <div class="form-group control-group col-xs-12">
                     <%= f.submit "Login", :class => "btn btn-primary login-submit col-xs-12" %>
@@ -53,22 +50,16 @@
                       </div>
                   <% end %>
                   <div class="form-group col-xs-12">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                      <label for="email">Email:</label>
                       <%= f.text_field :email, :class => "form-control", :placeholder => "ironocean@gmail.com" %>
-                    </div>
                   </div>
                   <div class="form-group col-xs-12">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                      <label for="password">Password:</label>
                       <%= f.password_field :password, :class => "form-control", :placeholder => "password" %>
-                    </div>
                   </div>
                   <div class="form-group col-xs-12">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-picture-o"></i></span>
+                      <label for="image">Image:</label>
                       <%= f.file_field :image, :class => "form-control" %>
-                    </div>
                   </div>
                   <div class="form-group control-group col-xs-12">
                     <%= f.submit "Register", :class => "btn btn-primary sign-up-submit col-xs-12" %>

@@ -5,9 +5,11 @@ var Form = {
             event.stopPropagation();
             $('.errorInput').removeClass('errorInput');
             $('.errorMessage').remove();
+            $('#notification-box').fadeOut();
             callback($(this))
         });
     },
+    function: null,
     login: function () {
         Form.onSubmit($('.loginForm'), function(form) {
             var info = {
@@ -16,6 +18,14 @@ var Form = {
             };
             $.when(Validate.login(info)).done(function(response) {
                 if (response.error) {
+                    $('#notification-box').fadeIn();
+                    $('#notification-message').html(response.error);
+                    clearInterval(Form.function);
+                    Form.function = setInterval(function() {
+                        setTimeout(function() {
+                            $('#notification-box').fadeOut();
+                        }, 8000)
+                    });
                     Form.prependErrorMessages(form, {email: response.error});
                 } else {
                     form.unbind('submit').submit();
@@ -25,7 +35,6 @@ var Form = {
     },
     signUp: function() {
         Form.onSubmit($('.signUpForm'), function(form) {
-//            var info = Register.inputs();
             var info = Inputs.signUp();
             var errors = Validate.form(form, info, 'user');
             var email = form.find('#user_email').val();
