@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :messages
+    get '/conversation/:sender_id' => 'messages#conversation'
 
     # resources :restaurants
     # post 'restaurants/new' => 'restaurants#create'

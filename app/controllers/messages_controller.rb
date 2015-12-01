@@ -17,7 +17,25 @@ class MessagesController < ApplicationController
   end
 
   def conversation
+    @user = User.find(params[:user_id])
+    @sender = User.find(params[:sender_id])
 
+    @conversation = get_conversation(params[:user_id], params[:sender_id])
+
+    @messages = Message.where(receiver_id: params[:user_id]).reverse_order
+    @new_messages = @messages.where(unread: true)
+
+
+    @users_with_conversation = []
+  end
+
+  def get_conversation(reader_id, sender_id)
+    @user = User.find(reader_id)
+    @sender = User.find(sender_id)
+    sent_messages = @user.sent_messages.where(receiver_id: @sender)
+    received_messages = @user.received_messages.where(sender_id: @sender)
+    # Combines messages and orders them by created at.
+    sent_messages.zip(received_messages).map{|h1,h2| h1.created_at > h2.created_at ? h1.merge(h2) : [h1 ,h2]}.flatten
   end
 
   # GET /messages/1

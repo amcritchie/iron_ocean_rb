@@ -10,6 +10,13 @@
           </tr>
           </thead>
           <tbody>
+          <% @conversation.each do |message| %>
+            <tr>
+              <td>
+                <%= message.id %>
+              </td>
+            </tr>
+          <% end %>
           <% @users_with_conversation.each do |user| %>
               <% last_message = Message.where(sender: user, receiver: current_user).last %>
               <tr class="<% if last_message.unread %>success<% end %> clickable-row" data-href='/users/<%= current_user.id %>/conversation/<%= user.id %>'>

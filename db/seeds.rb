@@ -6,8 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Reset Database
+# $ rake db:drop db:create db:migrate db:seed
+
 # Create Admin User
-User.delete_all
 admin = User.create(
     email: Figaro.env.admin_email,
     password: Figaro.env.admin_password,
@@ -59,60 +61,57 @@ User.create(
     last_active: nil
 )
 
-Message.delete_all
 Message.create(
-    sender_id: 1,
-    receiver_id: 2,
-    unread: false,
+    sender_id: 1, receiver_id: 2, unread: false,
     title: "Welcome to Iron Ocean",
     body: "Hello amcritchie@gmail.com, welcome to Iron Ocean."
 )
 
 Message.create(
-    sender_id: 2,
-    receiver_id: 1,
-    unread: false,
+    sender_id: 2, receiver_id: 1, unread: false,
     title: "Thanks for the welcome",
-    body: "Thanks for the welcome, I cant wait to get stared"
+    body: "Thanks for the welcome, I cant wait to get stared."
 )
 
 Message.create(
-    sender_id: 1,
-    receiver_id: 3,
-    unread: false,
+    sender_id: 1, receiver_id: 3, unread: false,
     title: "Welcome to Iron Ocean",
     body: "Hello alexmcray@aol.com, welcome to Iron Ocean."
 )
 
 Message.create(
-    sender_id: 2,
-    receiver_id: 3,
-    unread: false,
+    sender_id: 2, receiver_id: 3, unread: false,
     title: "Hi, how is it going",
     body: "Hi AlexMcRay, how are you?"
 )
 
 Message.create(
-    sender_id: 3,
-    receiver_id: 2,
-    unread: false,
+    sender_id: 3, receiver_id: 2, unread: false,
     title: "RE Hi, how is it going",
     body: "Im doing very well, how are you?"
 )
 
 Message.create(
-    sender_id: 2,
-    receiver_id: 3,
-    unread: false,
+    sender_id: 2, receiver_id: 3, unread: false,
     title: "RE RE Hi, how is it going",
     body: "Great, thanks for asking!"
 )
 
 
 Message.create(
-    sender_id: 3,
-    receiver_id: 2,
-    unread: true,
+    sender_id: 3, receiver_id: 2, unread: false,
     title: "RE RE RE Hi, how is it going",
-    body: "How long have you lived in Denver."
+    body: "How long have you lived in Denver?"
+)
+
+Message.create(
+    sender_id: 2, receiver_id: 3, unread: false,
+    title: "RE RE RE RE Hi, how is it going",
+    body: "About 3 years now.  How about you?"
+)
+
+Message.create(
+    sender_id: 3, receiver_id: 2, unread: true,
+    title: "RE RE RE RE REHi, how is it going",
+    body: "This is my first winter."
 )
