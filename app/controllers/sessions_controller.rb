@@ -7,23 +7,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:user][:email].downcase)
-    # p '-=-'*80
-    # p @user
-    # p @user[:admin]
-    # # p @user
-    # p '-=-'*80
     session[:user_id] = @user.id
     if @user && @user[:admin]
       redirect_to admin_path
     else
       redirect_to :back
     end
-    # if @user && @user.authenticate(params[:user][:password])
-    #   session[:user_id] = @user.id
-    #   redirect_to :back
-    # else
-    #   render :new
-    # end
   end
 
   def authenticate
