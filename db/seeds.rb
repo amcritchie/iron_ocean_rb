@@ -17,7 +17,9 @@ last_active: nil, image: Rails.root.join("app/assets/images/seed_images/iron_dra
 )
 admin_address = admin.addresses.create(address: Figaro.env.admin_address, city: Figaro.env.admin_city, state: Figaro.env.admin_state, country: Figaro.env.admin_country, zip: Figaro.env.admin_zip, phone: Figaro.env.admin_phone)
 Admin.create(user_id: admin.id, name: 'standard')
-Author.create(user_id: admin.id, name: 'standard')
+admin_author = Author.create(user_id: admin.id, name: 'standard')
+Blog.create(author_id: admin_author.id, title: 'Angularjs ui-router Firing Twice', slug: 'angular-js-ui-router-firing-twice')
+Blog.create(author_id: admin_author.id, title: 'Using .try() in Rails', slug: 'using-try-in-rails')
 
 alex = User.create(
 first_name: 'Alex', last_name: 'McRitchie', email: Figaro.env.user_email,

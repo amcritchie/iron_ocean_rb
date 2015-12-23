@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20151223070231) do
   create_table "blogs", force: true do |t|
     t.string   "title"
     t.string   "slug"
-    t.integer  "admin_id"
+    t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
