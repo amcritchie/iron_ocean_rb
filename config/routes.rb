@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   get 'admin/analytics' => 'admin#analytics'
   get 'admin/users' => 'admin#users'
 
+  get 'blogs' => 'blogs#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
