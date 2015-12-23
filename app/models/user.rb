@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_one :admin
+  has_one :author
 
   has_many :addresses, as: :addressable
 
