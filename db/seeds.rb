@@ -18,8 +18,13 @@ last_active: nil, image: Rails.root.join("app/assets/images/seed_images/iron_dra
 admin_address = admin.addresses.create(address: Figaro.env.admin_address, city: Figaro.env.admin_city, state: Figaro.env.admin_state, country: Figaro.env.admin_country, zip: Figaro.env.admin_zip, phone: Figaro.env.admin_phone)
 Admin.create(user_id: admin.id, name: 'standard')
 admin_author = Author.create(user_id: admin.id, name: 'standard')
-Blog.create(author_id: admin_author.id, title: 'Angularjs ui-router Firing Twice', slug: 'angular_js_ui_router_firing_twice')
-Blog.create(author_id: admin_author.id, title: 'Using .try() in Rails', slug: 'using_try_in_rails')
+
+urban_chef = Blog.create(name: "Urban Chef", slug: "urban_chef", active: true)
+angular_answers = Blog.create(name: "Angular Answers", slug: "angular_answers", active: true)
+
+Article.create(active: true, author_id: admin_author.id, blog_id: angular_answers.id, title: 'Angularjs ui-router Firing Twice', slug: 'angular_js_ui_router_firing_twice')
+Article.create(active: true, author_id: admin_author.id, blog_id: angular_answers.id, title: 'Using .try() in Rails', slug: 'using_try_in_rails')
+Article.create(active: true, author_id: admin_author.id, blog_id: urban_chef.id, title: 'BBQ Frozen Pizza', slug: 'bbq_frozen_pizza')
 
 alex = User.create(
 first_name: 'Alex', last_name: 'McRitchie', email: Figaro.env.user_email,

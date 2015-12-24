@@ -1,7 +1,7 @@
 <%= render 'layouts/headers/blog_header' %>
 <div class="container" style="margin-top: 50px;">
   <div class="col-md-8">
-    <% @articles.each do |article| %>
+    <% @blog.articles.each do |article| %>
       <h2><%= article.title %></h2>
       <a href="/article/<%= article.slug %>">Read Blog</a>
       <%= render "blogs/library/#{article.slug}" %>

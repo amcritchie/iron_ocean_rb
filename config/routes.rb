@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   get 'admin/users' => 'admin#users'
 
   get 'blogs' => 'blogs#index'
+  get 'blog/:slug' => 'blogs#show'
+  get 'article/:slug' => 'articles#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

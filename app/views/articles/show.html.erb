@@ -1,12 +1,8 @@
 <%= render 'layouts/headers/blog_header' %>
 <div class="container" style="margin-top: 50px;">
   <div class="col-md-8">
-    <% @articles.each do |article| %>
-      <h2><%= article.title %></h2>
-      <a href="/article/<%= article.slug %>">Read Blog</a>
-      <%= render "blogs/library/#{article.slug}" %>
-
-    <% end %>
+    <h2><%= @article.title %></h2>
+    <%= render "blogs/library/#{@article.slug}" %>
   </div>
   <div class="col-md-4 list-group">
     Check out our blogs.

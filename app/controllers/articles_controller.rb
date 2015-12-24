@@ -1,21 +1,9 @@
-class BlogsController < ApplicationController
-  # before_action :set_message, only: [:show, :edit, :update, :destroy]
-
-  # GET /messages
-  # GET /messages.json
-  def index
-    @blogs = Blog.all
-    @articles = Article.all
-  end
+class ArticlesController < ApplicationController
 
   # GET /messages/1
   # GET /messages/1.json
   def show
-    puts '-'*100
-    puts params
-    puts params[:slug]
-    puts '-'*100
-    @blog = Blog.find_by(slug: params[:slug])
+    @article = Article.find_by(slug: params[:slug])
   end
 
   # GET /messages/new
